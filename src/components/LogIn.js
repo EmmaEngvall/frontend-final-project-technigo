@@ -55,6 +55,10 @@ const LogIn = () => {
       })
   }
 
+  const onInputChange = () => {
+    dispatch(user.actions.setError(null));
+  };
+
   return (
     <StyledMainWrapper>
       <InnerWrapper>
@@ -85,7 +89,10 @@ const LogIn = () => {
               id="email"
               placeholder="Your email here"
               value={email}
-              onChange={(e) => setEmail(e.target.value)} />
+              onChange={(e) => {
+                setEmail(e.target.value);
+                onInputChange();
+              }} />
           </LabelForm>
           <LabelForm htmlFor="username">Username
             <input
@@ -95,7 +102,10 @@ const LogIn = () => {
               value={username}
               minLength="2"
               maxLength="14"
-              onChange={(e) => setUsername(e.target.value)} />
+              onChange={(e) => {
+                setUsername(e.target.value);
+                onInputChange();
+              }} />
           </LabelForm>
           <LabelForm htmlFor="password">Password
             <input
@@ -104,7 +114,10 @@ const LogIn = () => {
               placeholder="At least 8 characters"
               value={password}
               minLength="8"
-              onChange={(e) => setPassword(e.target.value)} />
+              onChange={(e) => {
+                setPassword(e.target.value);
+                onInputChange();
+              }} />
           </LabelForm>
           <SubmitButton
             type="submit"
@@ -112,6 +125,7 @@ const LogIn = () => {
             {(mode === 'register') ? 'Register' : 'Login'}
           </SubmitButton>
         </StyledForm>
+        {error === 'Invalid email adress' && mode === 'register' && (<ErrorMessage>Invalid email adress</ErrorMessage>)}
         {error !== null && mode === 'register' && (<ErrorMessage>Sorry, user already exists.</ErrorMessage>)}
         {error !== null && mode === 'login' && (<ErrorMessage>Pls make sure that you are a registered user and that you have filled in the correct login information.</ErrorMessage>)}
       </InnerWrapper>
