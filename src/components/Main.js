@@ -35,16 +35,15 @@ const Main = () => {
     <StyledMainWrapper>
       <InnerWrapper>
         <GreetingText>Welcome to the wave finder!</GreetingText>
-        {(!accessToken)
-          ? <p>Register and login to share your surf experiences</p>
-          : <p>Hello {username}</p>}
-        {(!accessToken)
-          ?
-          <NavLink to="/login">
-            <LogoutButton type="button">Register/Log In</LogoutButton>
-          </NavLink>
-          : ''}
-        <p>What our others members have shared...</p>
+        {(!accessToken) ? (
+          <>
+            <p>Register and login to share your surf experiences</p>
+            <NavLink to="/login">
+              <LogoutButton type="button">Register/Log In</LogoutButton>
+            </NavLink>
+          </>)
+          : (<p>Hello {username}</p>)}
+        <p>Recommendations that our members have shared...</p>
         <PostsWrapper>
           {useSelector((store) => store.surfPosts.allItems).map((item) => {
             return (
