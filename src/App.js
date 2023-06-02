@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import user from 'reducers/user';
+import surfPosts from 'reducers/surfPosts';
 import About from 'components/About';
 import Contact from 'components/Contact';
 import Credits from 'components/Credits';
@@ -16,7 +17,8 @@ import Main from 'components/Main';
 
 export const App = () => {
   const reducer = combineReducers({
-    user: user.reducer
+    user: user.reducer,
+    surfPosts: surfPosts.reducer
   });
   const store = configureStore({ reducer })
   return (
