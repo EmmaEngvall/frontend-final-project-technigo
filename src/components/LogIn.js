@@ -125,7 +125,7 @@ const LogIn = () => {
             {(mode === 'register') ? 'Register' : 'Login'}
           </SubmitButton>
         </StyledForm>
-        {error === 'Invalid email adress' && mode === 'register' && (<ErrorMessage>Invalid email adress</ErrorMessage>)}
+        {error === 'Invalid email address' && mode === 'register' && (<ErrorMessage>Invalid email address</ErrorMessage>)}
         {error !== null && mode === 'register' && (<ErrorMessage>Sorry, user already exists.</ErrorMessage>)}
         {error !== null && mode === 'login' && (<ErrorMessage>Pls make sure that you are a registered user and that you have filled in the correct login information.</ErrorMessage>)}
       </InnerWrapper>
