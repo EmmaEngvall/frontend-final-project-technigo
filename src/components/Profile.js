@@ -52,6 +52,7 @@ const Profile = () => {
       <InnerWrapper>
         <GreetingText>Welcome {username} to your profile!</GreetingText>
         <LogoutButton type="button" onClick={OnLogoutButtonClick}>Log out</LogoutButton>
+        <PostForm />
         <PostsWrapper>
           {useSelector((store) => store.surfPosts.createdByUserItems).map((item) => {
             return (
@@ -64,7 +65,6 @@ const Profile = () => {
               </SinglePostWrapper>
             )
           })}
-          <PostForm />
         </PostsWrapper>
       </InnerWrapper>
     </StyledMainWrapper>
