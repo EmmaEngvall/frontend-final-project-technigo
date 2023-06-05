@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +7,7 @@ import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
 import { InnerWrapper, StyledMainWrapper, PostsWrapper, SinglePostWrapper, GreetingText, LogoutButton, Headline, Location, Message } from 'styled/ProfileStyled';
 import PostForm from './PostForm';
+import HandleFav from './HandleFav';
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -84,7 +86,7 @@ const Profile = () => {
                 <Location>{item.location}</Location>
                 <Message>{item.message}</Message>
                 <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
-                <p>🤙 x {item.likes}</p>
+                <p>🤙 x {item.numOfLikes}</p>
               </SinglePostWrapper>
             )
           })}
@@ -98,7 +100,8 @@ const Profile = () => {
                 <Location>{item.location}</Location>
                 <Message>{item.message}</Message>
                 <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
-                <p>🤙 x {item.likes}</p>
+                <p>🤙 x {item.numOfLikes}</p>
+                <HandleFav id={item._id} />
               </SinglePostWrapper>
             )
           })}

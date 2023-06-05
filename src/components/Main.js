@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
 import { InnerWrapper, StyledMainWrapper, PostsWrapper, SinglePostWrapper, GreetingText, LogoutButton, Headline, Location, Message } from 'styled/MainStyled';
+import HandleFav from './HandleFav';
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,6 @@ const Main = () => {
   }, [dispatch])
 
   const handleLikeChange = (id) => {
-    console.log('This is the post id:', id)
     const options = {
       method: 'PATCH',
       headers: {
@@ -84,11 +84,13 @@ const Main = () => {
                 <Message>{item.message}</Message>
                 <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
                 <button
-                  key={item._id}
+                  key="likeBtn"
                   type="submit"
-                  onClick={() => handleLikeChange(item._id)}>
+                  onClick={() => handleLikeChange(item._id)}
+                  disabled={(!accessToken)}>
                   <p>🤙 x {item.numOfLikes}</p>
                 </button>
+                <HandleFav id={item._id} />
               </SinglePostWrapper>
             )
           })}
