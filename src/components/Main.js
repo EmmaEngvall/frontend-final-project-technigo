@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -10,6 +11,8 @@ const Main = () => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
+  const allItemsArray = useSelector((store) => store.surfPosts.allItems)
+  console.log(allItemsArray)
 
   useEffect(() => {
     const options = {
@@ -30,6 +33,34 @@ const Main = () => {
         }
       });
   }, [dispatch])
+
+  const handleLikeChange = (id) => {
+    console.log('This is the post id:', id)
+    const options = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken
+      }
+    }
+    fetch(API_URL(`surfposts/${id}/like`), options)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          dispatch(surfPosts.actions.setError(null));
+          const updatedItems = allItemsArray.map((item) => {
+            if (item._id === data.response._id) {
+              return data.response;
+            }
+            return item;
+          });
+          dispatch(surfPosts.actions.setAllItems(updatedItems));
+        } else {
+          dispatch(surfPosts.actions.setError(data.response));
+          dispatch(surfPosts.actions.setAllItems([]));
+        }
+      });
+  };
 
   return (
     <StyledMainWrapper>
@@ -52,7 +83,12 @@ const Main = () => {
                 <Location>{item.location}</Location>
                 <Message>{item.message}</Message>
                 <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
-                <p>🤙 x {item.likes}</p>
+                <button
+                  key={item._id}
+                  type="submit"
+                  onClick={() => handleLikeChange(item._id)}>
+                  <p>🤙 x {item.numOfLikes}</p>
+                </button>
               </SinglePostWrapper>
             )
           })}
