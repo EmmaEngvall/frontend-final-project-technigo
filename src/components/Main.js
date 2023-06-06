@@ -7,6 +7,7 @@ import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
 import { InnerWrapper, StyledMainWrapper, PostsWrapper, SinglePostWrapper, GreetingText, LogoutButton, Headline, Location, Message } from 'styled/MainStyled';
 import HandleFav from './HandleFav';
+import Weather from './Weather';
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -66,6 +67,7 @@ const Main = () => {
     <StyledMainWrapper>
       <InnerWrapper>
         <GreetingText>Welcome to the wave finder!</GreetingText>
+        <Weather />
         {(!accessToken) ? (
           <>
             <p>Register and login to share your surf experiences</p>
