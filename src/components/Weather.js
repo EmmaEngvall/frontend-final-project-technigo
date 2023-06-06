@@ -19,6 +19,7 @@ const Weather = () => {
       .then((fiveDay) => {
         const filteredForecast = fiveDay.list.filter((item) => item.dt_txt.includes('12:00:00'));
         setForecast(filteredForecast);
+        setCitySearch('');
       })
       .catch((error) => {
         console.error('Error fetching weather forecast:', error);
@@ -37,6 +38,7 @@ const Weather = () => {
         </label>
         <SubmitButton type="submit">Submit</SubmitButton>
       </StyledForm>
+      {(forecast.length) ? <p>Five-day weather forecast for {citySearch}</p> : ''}
       {forecast.map((item) => {
         const date = new Date(item.dt * 1000);
         const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });

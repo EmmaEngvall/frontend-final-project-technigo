@@ -66,6 +66,9 @@ const PostForm = () => {
           id="message"
           value={message}
           placeholder="How was the surf?"
+          rows="10"
+          cols="40"
+          maxLength={500}
           onChange={(e) => setMessage(e.target.value)} />
       </label>
       <SubmitButton type="submit">Submit</SubmitButton>

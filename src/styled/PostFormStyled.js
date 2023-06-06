@@ -32,3 +32,5 @@ export const SubmitButton = styled.button`
     color: white;
   }
 `
+
+// text area resize:none

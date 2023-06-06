@@ -86,6 +86,9 @@ const Profile = () => {
                 <Location>{item.location}</Location>
                 <Message>{item.message}</Message>
                 <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
+                <p>✍️Edit post</p>
+                <p>🗑️Delete post</p>
+                <p>Save</p>
                 <p>🤙 x {item.numOfLikes}</p>
               </SinglePostWrapper>
             )
