@@ -1,15 +1,19 @@
 // import dotenv from 'dotenv';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { StyledForm, SubmitButton } from 'styled/LoginStyled';
 
 // dotenv.config()
 
 const Weather = () => {
   const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
   const [forecast, setForecast] = useState([]);
+  const [citySearch, setCitySearch] = useState('')
 
-  useEffect(() => {
+  const onSearchSubmit = (event) => {
+    event.preventDefault();
+
     fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=Stockholm&appid=${apiKey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${citySearch}&appid=${apiKey}&units=metric`
     )
       .then((response) => response.json())
       .then((fiveDay) => {
@@ -19,10 +23,20 @@ const Weather = () => {
       .catch((error) => {
         console.error('Error fetching weather forecast:', error);
       });
-  }, [apiKey]);
-
+  }
   return (
     <div>
+      <StyledForm onSubmit={onSearchSubmit}>
+        <label htmlFor="citySearch">Search for a city
+          <input
+            type="text"
+            id="citySearch"
+            value={citySearch}
+            placeholder="Enter a city"
+            onChange={(e) => setCitySearch(e.target.value)} />
+        </label>
+        <SubmitButton type="submit">Submit</SubmitButton>
+      </StyledForm>
       {forecast.map((item) => {
         const date = new Date(item.dt * 1000);
         const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
