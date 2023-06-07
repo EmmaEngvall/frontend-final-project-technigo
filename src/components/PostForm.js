@@ -42,6 +42,13 @@ const PostForm = () => {
         console.error('an error occured:', error);
       });
   };
+
+  const handleReset = () => {
+    setHeadline('');
+    setLocation('');
+    setMessage('');
+  };
+
   return (
     <StyledForm onSubmit={onPostSubmit}>
       <label htmlFor="headline">Title
@@ -72,6 +79,11 @@ const PostForm = () => {
           onChange={(e) => setMessage(e.target.value)} />
       </label>
       <SubmitButton type="submit">Submit</SubmitButton>
+      <button
+        type="button"
+        onClick={handleReset}>
+        Reset
+      </button>
     </StyledForm>
   )
 }

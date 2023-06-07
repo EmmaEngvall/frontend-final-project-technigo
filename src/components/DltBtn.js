@@ -1,15 +1,17 @@
 /* eslint-disable no-underscore-dangle */
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
 
 const DltBtn = ({ id }) => {
   const dispatch = useDispatch();
+  const [cfmDlt, setCfmDlt] = useState(false);
   const accessToken = useSelector((store) => store.user.accessToken);
   const myItemsArray = useSelector((store) => store.surfPosts.createdByUserItems);
 
   const handleDlt = () => {
+    setCfmDlt(false);
     const options = {
       method: 'DELETE',
       headers: {
@@ -31,12 +33,19 @@ const DltBtn = ({ id }) => {
   }
 
   return (
-    <button
-      key="dltBtn"
-      type="submit"
-      onClick={handleDlt}>
-      <p>🗑️Delete post</p>
-    </button>
+    <div>
+      {(cfmDlt) ? (
+        <button type="button" onClick={() => setCfmDlt(false)}>NO</button>
+      ) : (
+        <button type="button" onClick={() => setCfmDlt(true)}><p>🗑️Delete post</p></button>
+      )} {(cfmDlt) && (
+        <button
+          key="dltBtn"
+          type="submit"
+          onClick={handleDlt}>
+          <p>Yes</p>
+        </button>)}
+    </div>
   )
 };
 
