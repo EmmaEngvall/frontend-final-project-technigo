@@ -8,6 +8,7 @@ const HandleFav = ({ id }) => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
   const allItemsArray = useSelector((store) => store.surfPosts.allItems)
+  const savedFavItems = useSelector((store) => store.surfPosts.savedFavItems)
 
   const handleAddFav = () => {
     const options = {
@@ -29,6 +30,12 @@ const HandleFav = ({ id }) => {
             return item;
           });
           dispatch(surfPosts.actions.setAllItems(updatedItems));
+
+          const updatedSavedFavItems = savedFavItems.filter(
+            (item) => item._id !== data.response._id
+          );
+
+          dispatch(surfPosts.actions.setSavedFavItems(updatedSavedFavItems))
         } else {
           dispatch(surfPosts.actions.setError(data.response));
           dispatch(surfPosts.actions.setAllItems([]));
