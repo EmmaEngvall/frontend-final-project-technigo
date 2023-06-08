@@ -9,6 +9,7 @@ import { InnerWrapper, StyledMainWrapper, PostsWrapper, SinglePostWrapper, Greet
 import PostForm from './PostForm';
 import HandleFav from './HandleFav';
 import DltBtn from './DltBtn';
+import EditPost from './EditPost';
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -85,9 +86,8 @@ const Profile = () => {
               <SinglePostWrapper key={item.id}>
                 <Headline>{item.headline}</Headline>
                 <Location>{item.location}</Location>
-                <Message>{item.message}</Message>
+                <EditPost message={item.message} id={item._id} />
                 <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
-                <p>✍️Edit post & save</p>
                 <DltBtn id={item._id} />
                 <p>🤙 x {item.numOfLikes}</p>
               </SinglePostWrapper>

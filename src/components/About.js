@@ -3,8 +3,12 @@ import React from 'react';
 const About = () => {
   return (
     <div>
-      <h1>This is the About page! We are two happy students at the Technigo Boot camp.</h1>
-      <p>Our names are Malin and Emma.</p>
+      <h2>Vision</h2>
+      <p>”Our vision is to create a place for inspiration where you can share
+        your experiences with fellow surfers...”
+      </p>
+      <h2>Background to project</h2>
+      <p>To conclude a 22 week bootcamp with Technigo...</p>
     </div>
   )
 }
