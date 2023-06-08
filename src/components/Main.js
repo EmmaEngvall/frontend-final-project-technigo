@@ -11,6 +11,7 @@ import { BackgroundContainer } from 'styled/LoginStyled';
 import HandleFav from './HandleFav';
 import Weather from './Weather';
 import ImageBackground from '../images/img_main.jpg';
+import SingleArticle from './SingleArticle';
 
 const BackgroundImg = styled.img`
   object-fit: cover;
@@ -97,18 +98,22 @@ const Main = () => {
                 <Location>{item.location}</Location>
                 <Message>{item.message}</Message>
                 <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
-                <button
-                  key="likeBtn"
-                  type="submit"
-                  onClick={() => handleLikeChange(item._id)}
-                  disabled={(!accessToken)}>
-                  <p>🤙 x {item.numOfLikes}</p>
-                </button>
+                <div className="tooltip">
+                  <button
+                    key="likeBtn"
+                    type="submit"
+                    onClick={() => handleLikeChange(item._id)}
+                    disabled={(!accessToken)}>
+                    <p>🤙 x {item.numOfLikes}</p>
+                    <span className="tooltiptext">Become a member to like a post.</span>
+                  </button>
+                </div>
                 <HandleFav id={item._id} />
               </SinglePostWrapper>
             )
           })}
         </PostsWrapper>
+        <SingleArticle />
       </InnerWrapper>
     </StyledMainWrapper>
   )

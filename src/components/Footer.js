@@ -1,4 +1,5 @@
 import React from 'react';
+import iconGithub from '../icons/github_hover.svg';
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
             href="https://github.com/MalinSkill"
             target="_blank"
             rel="noopener noreferrer">
-              Github
+            <img className="sm-icon" src={iconGithub} alt="github icon" />
           </a>
         </p>
       </div>
@@ -22,7 +23,7 @@ const Footer = () => {
             href="https://github.com/EmmaEngvall"
             target="_blank"
             rel="noopener noreferrer">
-              Github
+            <img className="sm-icon" src={iconGithub} alt="github icon" />
           </a>
         </p>
       </div>
