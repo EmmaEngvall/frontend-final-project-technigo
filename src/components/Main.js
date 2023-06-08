@@ -6,8 +6,17 @@ import { NavLink } from 'react-router-dom';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
 import { InnerWrapper, StyledMainWrapper, PostsWrapper, SinglePostWrapper, GreetingText, LogoutButton, Headline, Location, Message } from 'styled/MainStyled';
+import styled from 'styled-components/macro';
+import { BackgroundContainer } from 'styled/LoginStyled';
 import HandleFav from './HandleFav';
 import Weather from './Weather';
+import ImageBackground from '../images/img_main.jpg';
+
+const BackgroundImg = styled.img`
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+`
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -66,6 +75,9 @@ const Main = () => {
   return (
     <StyledMainWrapper>
       <InnerWrapper>
+        <BackgroundContainer>
+          <BackgroundImg src={ImageBackground} />
+        </BackgroundContainer>
         <GreetingText>Welcome to the wave finder!</GreetingText>
         <Weather />
         {(!accessToken) ? (

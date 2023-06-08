@@ -6,10 +6,19 @@ import user from 'reducers/user';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
 import { InnerWrapper, StyledMainWrapper, PostsWrapper, SinglePostWrapper, GreetingText, LogoutButton, Headline, Location, Message } from 'styled/ProfileStyled';
+import styled from 'styled-components/macro';
+import { BackgroundContainer } from 'styled/LoginStyled';
 import PostForm from './PostForm';
 import HandleFav from './HandleFav';
 import DltBtn from './DltBtn';
 import EditPost from './EditPost';
+import ImageBackground from '../images/img_profile.jpg';
+
+const BackgroundImg = styled.img`
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+`
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -75,6 +84,9 @@ const Profile = () => {
   return (
     <StyledMainWrapper>
       <InnerWrapper>
+        <BackgroundContainer>
+          <BackgroundImg src={ImageBackground} />
+        </BackgroundContainer>
         <GreetingText>Welcome {username} to your profile!</GreetingText>
         <LogoutButton type="button" onClick={OnLogoutButtonClick}>Log out</LogoutButton>
         <h2>Create a post</h2>

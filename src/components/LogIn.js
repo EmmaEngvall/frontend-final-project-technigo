@@ -2,8 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from 'utils/urls';
+import styled from 'styled-components/macro';
 import { StyledMainWrapper, InnerWrapper, RadioButtonWrapper, StyledForm, ErrorMessage, LabelForm, StyledHeader, SignUpText, BackgroundContainer, SubmitButton } from 'styled/LoginStyled';
 import user from '../reducers/user';
+import ImageBackground from '../images/img_login.jpg';
+
+const BackgroundImg = styled.img`
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+`
 
 const LogIn = () => {
   const [username, setUsername] = useState('');
@@ -130,7 +138,7 @@ const LogIn = () => {
         {error !== null && mode === 'login' && (<ErrorMessage>Pls make sure that you are a registered user and that you have filled in the correct login information.</ErrorMessage>)}
       </InnerWrapper>
       <BackgroundContainer>
-        <p>placeholder for background img</p>
+        <BackgroundImg src={ImageBackground} />
       </BackgroundContainer>
     </StyledMainWrapper>
   );
