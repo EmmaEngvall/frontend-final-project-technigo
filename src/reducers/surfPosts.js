@@ -22,8 +22,8 @@ const surfPosts = createSlice({
       store.savedFavItems = action.payload;
     },
     addPost: (store, action) => {
-      store.allItems.push(action.payload);
-      store.createdByUserItems.push(action.payload);
+      store.allItems.unshift(action.payload);
+      store.createdByUserItems.unshift(action.payload);
     }
   }
 });

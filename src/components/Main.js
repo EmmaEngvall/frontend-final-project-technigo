@@ -96,6 +96,7 @@ const Main = () => {
               <SinglePostWrapper key={item.id}>
                 <Headline>{item.headline}</Headline>
                 <Location>{item.location}</Location>
+                <p>{item.level}</p>
                 <Message>{item.message}</Message>
                 <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
                 <div className="tooltip">
@@ -113,6 +114,9 @@ const Main = () => {
             )
           })}
         </PostsWrapper>
+        <p>&quot;I love to get inspiration for my next travel adventures&quot;
+          <i>SurfTraveller82</i>
+        </p>
         <SingleArticle />
       </InnerWrapper>
     </StyledMainWrapper>

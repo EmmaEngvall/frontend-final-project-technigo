@@ -10,6 +10,7 @@ const PostForm = () => {
   const [headline, setHeadline] = useState('');
   const [location, setLocation] = useState('');
   const [message, setMessage] = useState('');
+  const [level, setLevel] = useState('');
 
   const onPostSubmit = (event) => {
     event.preventDefault();
@@ -22,7 +23,8 @@ const PostForm = () => {
       body: JSON.stringify({
         headline,
         message,
-        location
+        location,
+        level
       })
     }
     fetch(API_URL('surfposts'), options)
@@ -34,6 +36,7 @@ const PostForm = () => {
           setHeadline('');
           setLocation('');
           setMessage('');
+          setLevel('');
         } else {
           console.log('submission failed')
         }
@@ -66,6 +69,27 @@ const PostForm = () => {
           value={location}
           placeholder="Where in the world did you surf?"
           onChange={(e) => setLocation(e.target.value)} />
+      </label>
+      <label htmlFor="beginner">Beginner
+        <input
+          type="radio"
+          id="beginner"
+          checked={level === 'beginner'}
+          onChange={() => setLevel('beginner')} />
+      </label>
+      <label htmlFor="intermediate">intermediate
+        <input
+          type="radio"
+          id="intermediate"
+          checked={level === 'intermediate'}
+          onChange={() => setLevel('intermediate')} />
+      </label>
+      <label htmlFor="advanced">Advanced
+        <input
+          type="radio"
+          id="advanced"
+          checked={level === 'advanced'}
+          onChange={() => setLevel('advanced')} />
       </label>
       <label htmlFor="message">Message
         <textarea

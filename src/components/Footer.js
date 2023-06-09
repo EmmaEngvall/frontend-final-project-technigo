@@ -1,9 +1,10 @@
 import React from 'react';
+import { StyledFooterWrapper } from 'styled/FooterStyled';
 import iconGithub from '../icons/github_hover.svg';
 
 const Footer = () => {
   return (
-    <>
+    <StyledFooterWrapper>
       <div>
         <p>Technigo Web Development Boot Camp spring 2023</p>
         <p>Malin Skill</p>
@@ -27,7 +28,7 @@ const Footer = () => {
           </a>
         </p>
       </div>
-    </>
+    </StyledFooterWrapper>
   )
 }
 

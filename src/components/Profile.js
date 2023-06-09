@@ -98,6 +98,7 @@ const Profile = () => {
               <SinglePostWrapper key={item.id}>
                 <Headline>{item.headline}</Headline>
                 <Location>{item.location}</Location>
+                <p>{item.level}</p>
                 <EditPost message={item.message} id={item._id} />
                 <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
                 <DltBtn id={item._id} />
@@ -113,6 +114,7 @@ const Profile = () => {
               <SinglePostWrapper key={item.id}>
                 <Headline>{item.headline}</Headline>
                 <Location>{item.location}</Location>
+                <p>{item.level}</p>
                 <Message>{item.message}</Message>
                 <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
                 <p>🤙 x {item.numOfLikes}</p>

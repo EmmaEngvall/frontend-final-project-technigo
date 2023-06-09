@@ -14,6 +14,7 @@ import SingleArticle from 'components/SingleArticle';
 import Profile from 'components/Profile';
 import NotFound from 'components/NotFound';
 import Main from 'components/Main';
+import GlobalStyled from 'styled/GlobalStyled';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -22,22 +23,25 @@ export const App = () => {
   });
   const store = configureStore({ reducer })
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/singleArticle/:id" element={<SingleArticle />} />
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/credits" element={<Credits />} />
-          <Route path="*" element={<Navigate to="/404" replace />} />
-          <Route path="/404" element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </Provider>
+    <>
+      <GlobalStyled />
+      <Provider store={store}>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/singleArticle/:id" element={<SingleArticle />} />
+            <Route path="/login" element={<LogIn />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/credits" element={<Credits />} />
+            <Route path="*" element={<Navigate to="/404" replace />} />
+            <Route path="/404" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </Provider>
+    </>
   )
 }
