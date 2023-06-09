@@ -22,7 +22,7 @@ const SingleArticle = () => {
         <img src={imgLofoten} alt="Surfers in dry suits" />
       </div>
       <div className="Article">
-        <h2>Beautiful Cornwall, not just pasture.</h2>
+        <h2>Beautiful Cornwall, not just pasture</h2>
         <p>To not only go for the stunning nature but also for the excellent surf. Beaches may..</p>
         <img src={imgCornwall} alt="Cliffs and ocean in Cornwall" />
       </div>

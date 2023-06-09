@@ -44,13 +44,16 @@ const HandleFav = ({ id }) => {
   }
 
   return (
-    <button
-      key="favBtn"
-      type="submit"
-      onClick={handleAddFav}
-      disabled={(!accessToken)}>
-      <p>🔖 Save as favorite</p>
-    </button>
+    <div className="tooltip">
+      <button
+        key="favBtn"
+        type="submit"
+        onClick={handleAddFav}
+        disabled={(!accessToken)}>
+        <p>🔖 Save as favorite</p>
+        <span className="tooltiptext">Become a member to save a favorite</span>
+      </button>
+    </div>
   )
 };
 

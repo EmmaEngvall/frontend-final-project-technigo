@@ -12,6 +12,9 @@ import HandleFav from './HandleFav';
 import Weather from './Weather';
 import ImageBackground from '../images/img_main.jpg';
 import SingleArticle from './SingleArticle';
+import Praise from './Praise';
+import MainSortOldNewBtn from './MainSortOldNewBtn';
+import MainSortOnLikes from './MainSortLikeBtn';
 
 const BackgroundImg = styled.img`
   object-fit: cover;
@@ -79,7 +82,7 @@ const Main = () => {
         <BackgroundContainer>
           <BackgroundImg src={ImageBackground} />
         </BackgroundContainer>
-        <GreetingText>Welcome to the wave finder!</GreetingText>
+        <GreetingText>Welcome to Wave finder!</GreetingText>
         <Weather />
         {(!accessToken) ? (
           <>
@@ -91,6 +94,8 @@ const Main = () => {
           : (<p>Hello {username}</p>)}
         <p>Recommendations that our members have shared...</p>
         <PostsWrapper>
+          <MainSortOldNewBtn />
+          <MainSortOnLikes />
           {useSelector((store) => store.surfPosts.allItems).map((item) => {
             return (
               <SinglePostWrapper key={item.id}>
@@ -106,7 +111,7 @@ const Main = () => {
                     onClick={() => handleLikeChange(item._id)}
                     disabled={(!accessToken)}>
                     <p>🤙 x {item.numOfLikes}</p>
-                    <span className="tooltiptext">Become a member to like a post.</span>
+                    <span className="tooltiptext">Become a member to like a post</span>
                   </button>
                 </div>
                 <HandleFav id={item._id} />
@@ -114,9 +119,7 @@ const Main = () => {
             )
           })}
         </PostsWrapper>
-        <p>&quot;I love to get inspiration for my next travel adventures&quot;
-          <i>SurfTraveller82</i>
-        </p>
+        <Praise />
         <SingleArticle />
       </InnerWrapper>
     </StyledMainWrapper>
