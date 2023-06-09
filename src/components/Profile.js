@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import user from 'reducers/user';
@@ -25,6 +25,9 @@ const Profile = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
   const navigate = useNavigate();
+  const [currentSortOrder, setCurrentSortOrder] = useState('')
+  const allMySurfPosts = useSelector((store) => store.surfPosts.createdByUserItems);
+
   useEffect(() => {
     if (!accessToken) {
       navigate('/login')
@@ -81,6 +84,29 @@ const Profile = () => {
       });
   }, [accessToken, dispatch])
 
+  const handleSortMyPosts = () => {
+    const filteredMyPosts = [...allMySurfPosts];
+    let nextSortOrder;
+
+    if (currentSortOrder === 'asc') {
+      filteredMyPosts.sort((a, b) => {
+        const dateA = new Date(a.createdAt);
+        const dateB = new Date(b.createdAt)
+        return dateB - dateA;
+      });
+      nextSortOrder = 'desc';
+    } else {
+      filteredMyPosts.sort((a, b) => {
+        const dateA = new Date(a.createdAt);
+        const dateB = new Date(b.createdAt);
+        return dateA - dateB;
+      });
+      nextSortOrder = 'asc';
+    }
+    dispatch(surfPosts.actions.setCreatedByUserItems(filteredMyPosts));
+    setCurrentSortOrder(nextSortOrder);
+  };
+
   return (
     <StyledMainWrapper>
       <InnerWrapper>
@@ -92,6 +118,17 @@ const Profile = () => {
         <h2>Create a post</h2>
         <PostForm />
         <h2>My posts</h2>
+        <button
+          key="sortBtn"
+          type="button"
+          onClick={() => handleSortMyPosts()}>
+            Sort oldest to newest
+        </button>
+        {/* <button
+          key="unSortBtn"
+          type="button">
+            Sort newest to oldest
+        </button> */}
         <PostsWrapper>
           {useSelector((store) => store.surfPosts.createdByUserItems).map((item) => {
             return (
