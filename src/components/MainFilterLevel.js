@@ -28,7 +28,7 @@ const MainFilterLevel = () => {
 
   return (
     <select onChange={handleFilterChanges} value={selectedLevel}>
-      <option value="" selected="disabled">Sort on level</option>
+      <option value="" disabled>Sort on level</option>
       <option value="beginner">Beginner</option>
       <option value="intermediate">Intermediate</option>
       <option value="advanced">Advanced</option>
