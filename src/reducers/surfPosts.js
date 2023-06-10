@@ -7,6 +7,7 @@ const surfPosts = createSlice({
     filteredItems: [],
     createdByUserItems: [],
     savedFavItems: [],
+    filteredSavedFavItems: [],
     error: null
   },
   reducers: {
@@ -24,6 +25,9 @@ const surfPosts = createSlice({
     },
     setSavedFavItems: (store, action) => {
       store.savedFavItems = action.payload;
+    },
+    setFilteredSavedFavItems: (store, action) => {
+      store.filteredSavedFavItems = action.payload;
     },
     addPost: (store, action) => {
       store.allItems.unshift(action.payload);

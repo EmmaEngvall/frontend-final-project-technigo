@@ -13,6 +13,7 @@ import HandleFav from './HandleFav';
 import DltBtn from './DltBtn';
 import EditPost from './EditPost';
 import ImageBackground from '../images/img_profile.jpg';
+import ProfileSearchFav from './ProfileSearchFav';
 
 const BackgroundImg = styled.img`
   object-fit: cover;
@@ -77,9 +78,11 @@ const Profile = () => {
         if (data.success) {
           dispatch(surfPosts.actions.setError(null));
           dispatch(surfPosts.actions.setSavedFavItems(data.response));
+          dispatch(surfPosts.actions.setFilteredSavedFavItems(data.response));
         } else {
           dispatch(surfPosts.actions.setError(data.response));
           dispatch(surfPosts.actions.setSavedFavItems([]));
+          dispatch(surfPosts.actions.setFilteredSavedFavItems([]));
         }
       });
   }, [accessToken, dispatch])
@@ -122,7 +125,7 @@ const Profile = () => {
           key="sortBtn"
           type="button"
           onClick={() => handleSortMyPosts()}>
-            Sort oldest to newest
+          Sort oldest to newest
         </button>
         {/* <button
           key="unSortBtn"
@@ -145,8 +148,9 @@ const Profile = () => {
           })}
         </PostsWrapper>
         <h2>My favorite posts</h2>
+        <ProfileSearchFav />
         <PostsWrapper>
-          {useSelector((store) => store.surfPosts.savedFavItems).map((item) => {
+          {useSelector((store) => store.surfPosts.filteredSavedFavItems).map((item) => {
             return (
               <SinglePostWrapper key={item.id}>
                 <Headline>{item.headline}</Headline>

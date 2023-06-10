@@ -7,8 +7,9 @@ import { API_URL } from 'utils/urls';
 const HandleFav = ({ id }) => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
-  const allItemsArray = useSelector((store) => store.surfPosts.allItems)
-  const savedFavItems = useSelector((store) => store.surfPosts.savedFavItems)
+  const allItemsArray = useSelector((store) => store.surfPosts.allItems);
+  const savedFavItems = useSelector((store) => store.surfPosts.savedFavItems);
+  const filteredSavedFavItems = useSelector((store) => store.surfPosts.filteredSavedFavItems);
 
   const handleAddFav = () => {
     const options = {
@@ -35,7 +36,12 @@ const HandleFav = ({ id }) => {
             (item) => item._id !== data.response._id
           );
 
-          dispatch(surfPosts.actions.setSavedFavItems(updatedSavedFavItems))
+          const updatedFilteredSavedFavItems = filteredSavedFavItems.filter(
+            (item) => item._id !== data.response._id
+          );
+
+          dispatch(surfPosts.actions.setSavedFavItems(updatedSavedFavItems));
+          dispatch(surfPosts.actions.setFilteredSavedFavItems(updatedFilteredSavedFavItems));
         } else {
           dispatch(surfPosts.actions.setError(data.response));
           dispatch(surfPosts.actions.setAllItems([]));

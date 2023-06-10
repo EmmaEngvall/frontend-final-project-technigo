@@ -5,13 +5,13 @@ import surfPosts from 'reducers/surfPosts';
 const MainFilterLevel = () => {
   const [selectedLevel, setSelectedLevel] = useState('all');
   const dispatch = useDispatch();
-  const orignalItems = useSelector((store) => store.surfPosts.allItems)
-  const filterAllItems = useSelector((store) => store.surfPosts.filteredItems)
+  const orignalItems = useSelector((store) => store.surfPosts.allItems);
+
   const filterPostByLevel = (level) => {
     let filteredItems = [];
 
     if (level === 'beginner' || level === 'intermediate' || level === 'advanced') {
-      filteredItems = filterAllItems.filter((item) => item.level === level);
+      filteredItems = orignalItems.filter((item) => item.level === level);
     } else {
       filteredItems = orignalItems;
     }
