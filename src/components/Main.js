@@ -123,7 +123,7 @@ const Main = () => {
                     onClick={() => handleLikeChange(item._id)}
                     disabled={(!accessToken)}>
                     <p>🤙 x {item.numOfLikes}</p>
-                    <span className="tooltiptext">Become a member to like a post</span>
+                    {(!accessToken) && <span className="tooltiptext">Become a member to like a post</span>}
                   </button>
                 </div>
                 <HandleFav id={item._id} />

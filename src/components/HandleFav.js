@@ -51,7 +51,7 @@ const HandleFav = ({ id }) => {
         onClick={handleAddFav}
         disabled={(!accessToken)}>
         <p>🔖 Save as favorite</p>
-        <span className="tooltiptext">Become a member to save a favorite</span>
+        {(!accessToken) && <span className="tooltiptext">Become a member to save a favorite</span>}
       </button>
     </div>
   )
