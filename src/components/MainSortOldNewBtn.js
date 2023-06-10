@@ -4,7 +4,7 @@ import surfPosts from 'reducers/surfPosts';
 
 const MainSortOldNewBtn = () => {
   const [currentSortOrder, setCurrentSortOrder] = useState('desc')
-  const allSurfPosts = useSelector((store) => store.surfPosts.allItems);
+  const allSurfPosts = useSelector((store) => store.surfPosts.filteredItems);
   const dispatch = useDispatch();
 
   const handleSortAllPosts = () => {
@@ -26,7 +26,7 @@ const MainSortOldNewBtn = () => {
       });
       nextSortOrder = 'asc';
     }
-    dispatch(surfPosts.actions.setAllItems(filteredAllPosts));
+    dispatch(surfPosts.actions.setFilteredItems(filteredAllPosts));
     setCurrentSortOrder(nextSortOrder);
   };
 

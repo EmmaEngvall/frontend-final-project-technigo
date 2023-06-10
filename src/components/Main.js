@@ -15,6 +15,7 @@ import SingleArticle from './SingleArticle';
 import Praise from './Praise';
 import MainSortOldNewBtn from './MainSortOldNewBtn';
 import MainSortOnLikes from './MainSortLikeBtn';
+import MainFilterLevel from './MainFilterLevel';
 
 const BackgroundImg = styled.img`
   object-fit: cover;
@@ -27,7 +28,7 @@ const Main = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
   const allItemsArray = useSelector((store) => store.surfPosts.allItems)
-  console.log(allItemsArray)
+  const filteredItems = useSelector((store) => store.surfPosts.filteredItems)
 
   useEffect(() => {
     const options = {
@@ -42,9 +43,11 @@ const Main = () => {
         if (data.success) {
           dispatch(surfPosts.actions.setError(null));
           dispatch(surfPosts.actions.setAllItems(data.response));
+          dispatch(surfPosts.actions.setFilteredItems(data.response));
         } else {
           dispatch(surfPosts.actions.setError(data.response));
           dispatch(surfPosts.actions.setAllItems([]));
+          dispatch(surfPosts.actions.setFilteredItems([]));
         }
       });
   }, [dispatch])
@@ -69,9 +72,17 @@ const Main = () => {
             return item;
           });
           dispatch(surfPosts.actions.setAllItems(updatedItems));
+          const updatedFilteredItems = filteredItems.map((item) => {
+            if (item._id === data.response._id) {
+              return data.response;
+            }
+            return item;
+          });
+          dispatch(surfPosts.actions.setFilteredItems(updatedFilteredItems));
         } else {
           dispatch(surfPosts.actions.setError(data.response));
           dispatch(surfPosts.actions.setAllItems([]));
+          dispatch(surfPosts.actions.setFilteredItems([]));
         }
       });
   };
@@ -94,9 +105,10 @@ const Main = () => {
           : (<p>Hello {username}</p>)}
         <p>Recommendations that our members have shared...</p>
         <PostsWrapper>
+          <MainFilterLevel />
           <MainSortOldNewBtn />
           <MainSortOnLikes />
-          {useSelector((store) => store.surfPosts.allItems).map((item) => {
+          {filteredItems.map((item) => {
             return (
               <SinglePostWrapper key={item.id}>
                 <Headline>{item.headline}</Headline>

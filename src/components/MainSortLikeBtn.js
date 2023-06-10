@@ -4,7 +4,7 @@ import surfPosts from 'reducers/surfPosts';
 
 const MainSortOnLikes = () => {
   const [currentSortOrder, setCurrentSortOrder] = useState('desc')
-  const allSurfPosts = useSelector((store) => store.surfPosts.allItems);
+  const allSurfPosts = useSelector((store) => store.surfPosts.filteredItems);
   const dispatch = useDispatch();
 
   const handleSortOnLikes = () => {
@@ -24,7 +24,7 @@ const MainSortOnLikes = () => {
       });
       nextSortOrder = 'reset';
     }
-    dispatch(surfPosts.actions.setAllItems(filteredAllPosts));
+    dispatch(surfPosts.actions.setFilteredItems(filteredAllPosts));
     setCurrentSortOrder(nextSortOrder);
   };
 

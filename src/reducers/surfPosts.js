@@ -4,6 +4,7 @@ const surfPosts = createSlice({
   name: 'surfPosts',
   initialState: {
     allItems: [],
+    filteredItems: [],
     createdByUserItems: [],
     savedFavItems: [],
     error: null
@@ -14,6 +15,9 @@ const surfPosts = createSlice({
     },
     setAllItems: (store, action) => {
       store.allItems = action.payload;
+    },
+    setFilteredItems: (store, action) => {
+      store.filteredItems = action.payload;
     },
     setCreatedByUserItems: (store, action) => {
       store.createdByUserItems = action.payload;
