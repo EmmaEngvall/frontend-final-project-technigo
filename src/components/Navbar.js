@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { StyledNavBar, StyledNavLink, UlElements, LiElements, ElementP, ToggleButton, NavWrapper } from 'styled/NavbarStyled';
+import CloseMenuIcon from '../icons/phone-menu-close.svg';
+import OpenMenuIcon from '../icons/phone-menu-open.svg';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,8 +33,8 @@ const Navbar = () => {
   console.log(isOpen)
   return (
     <StyledNavBar>
-      {isOpen && <ToggleButton onClick={() => setIsOpen(false)}><p>X</p></ToggleButton>}
-      {!isOpen && <ToggleButton onClick={() => setIsOpen(true)}><p>🟰</p></ToggleButton>}
+      {isOpen && <ToggleButton onClick={() => setIsOpen(false)}><img src={CloseMenuIcon} alt="icon for close menu option" /></ToggleButton>}
+      {!isOpen && <ToggleButton onClick={() => setIsOpen(true)}><img src={OpenMenuIcon} alt="icon for open menu option" /></ToggleButton>}
       <NavWrapper ref={navRef} isOpen={isOpen}>
         <nav>
           <UlElements>

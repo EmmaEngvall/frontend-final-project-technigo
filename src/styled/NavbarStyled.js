@@ -28,7 +28,10 @@ export const UlElements = styled.ul`
 
 export const LiElements = styled.li`
   list-style-type: none;
-  margin: 0.2rem;
+
+  @media (min-width: 667px){
+  padding: 5px;
+}
 `
 export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
@@ -52,14 +55,18 @@ export const ElementP = styled.p`
 
 export const ToggleButton = styled.button`
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0.5rem;
+  right: 0.5rem;
   background: transparent;
   border: none;
   outline: none;
   cursor: pointer;
   z-index: 10;
 
+  img {
+    width: 40px;
+    height: 40px;
+  }
   @media (min-width: 667px){
   display: none;
 }
