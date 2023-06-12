@@ -42,9 +42,6 @@ const Navbar = () => {
               <StyledNavLink to="/"><ElementP>Home</ElementP></StyledNavLink>
             </LiElements>
             <LiElements>
-              <StyledNavLink to="/login"><ElementP>Register/Login</ElementP></StyledNavLink>
-            </LiElements>
-            <LiElements>
               <StyledNavLink to="/profile"><ElementP>My profile</ElementP></StyledNavLink>
             </LiElements>
             <LiElements>
@@ -54,7 +51,7 @@ const Navbar = () => {
               <StyledNavLink to="/contact"><ElementP>Contact</ElementP></StyledNavLink>
             </LiElements>
             <LiElements>
-              <StyledNavLink to="/credits"><ElementP>Credits</ElementP></StyledNavLink>
+              <StyledNavLink to="/login"><ElementP>Register/Login</ElementP></StyledNavLink>
             </LiElements>
           </UlElements>
         </nav>

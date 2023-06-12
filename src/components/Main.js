@@ -94,8 +94,7 @@ const Main = () => {
         <BackgroundContainer>
           <BackgroundImg src={ImageBackground} />
         </BackgroundContainer>
-        <GreetingText>Welcome to Wave finder!</GreetingText>
-        <Weather />
+        <GreetingText>Welcome to Wave Finder!</GreetingText>
         {(!accessToken) ? (
           <>
             <p>Register and login to share your surf experiences</p>
@@ -104,6 +103,7 @@ const Main = () => {
             </NavLink>
           </>)
           : (<p>Hello {username}</p>)}
+        <Weather />
         <p>Recommendations that our members have shared...</p>
         <PostsWrapper>
           <MainFilterLevel />

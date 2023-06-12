@@ -6,7 +6,6 @@ import user from 'reducers/user';
 import surfPosts from 'reducers/surfPosts';
 import About from 'components/About';
 import Contact from 'components/Contact';
-import Credits from 'components/Credits';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import LogIn from 'components/LogIn';
@@ -35,7 +34,6 @@ export const App = () => {
             <Route path="/profile" element={<Profile />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/credits" element={<Credits />} />
             <Route path="*" element={<Navigate to="/404" replace />} />
             <Route path="/404" element={<NotFound />} />
           </Routes>

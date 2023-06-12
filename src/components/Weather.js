@@ -28,7 +28,7 @@ const Weather = () => {
   return (
     <div>
       <StyledForm onSubmit={onSearchSubmit}>
-        <label htmlFor="citySearch">Search for a city
+        <label htmlFor="citySearch">Search for weather in a city
           <input
             type="text"
             id="citySearch"

@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
@@ -10,6 +10,20 @@ const HandleFav = ({ id }) => {
   const allItemsArray = useSelector((store) => store.surfPosts.allItems);
   const savedFavItems = useSelector((store) => store.surfPosts.savedFavItems);
   const filteredSavedFavItems = useSelector((store) => store.surfPosts.filteredSavedFavItems);
+  const userId = useSelector((store) => store.user.userId)
+  const [favoriteButtonText, setFavoriteButtonText] = useState('');
+
+  useEffect(() => {
+    const post = allItemsArray.find((item) => item._id === id);
+
+    const isFavorite = post.savedFavBy.includes(userId);
+
+    if (isFavorite) {
+      setFavoriteButtonText('❌ Remove favorite');
+    } else {
+      setFavoriteButtonText('🔖 Save as favorite');
+    }
+  }, [allItemsArray, id, userId])
 
   const handleAddFav = () => {
     const options = {
@@ -56,7 +70,7 @@ const HandleFav = ({ id }) => {
         type="submit"
         onClick={handleAddFav}
         disabled={(!accessToken)}>
-        <p>🔖 Save as favorite</p>
+        <p>{favoriteButtonText}</p>
         {(!accessToken) && <span className="tooltiptext">Become a member to save a favorite</span>}
       </button>
     </div>
