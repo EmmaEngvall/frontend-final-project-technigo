@@ -36,3 +36,5 @@ const SingleArticle = () => {
 }
 
 export default SingleArticle
+
+// Add weather forecast for destination?

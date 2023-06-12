@@ -11,10 +11,11 @@ import { BackgroundContainer } from 'styled/LoginStyled';
 import HandleFav from './HandleFav';
 import Weather from './Weather';
 import ImageBackground from '../images/img_main.jpg';
-import SingleArticle from './SingleArticle';
+// import SingleArticle from './SingleArticle';
 import Praise from './Praise';
 import MainSortOldNewBtn from './MainSortOldNewBtn';
 import MainSortOnLikes from './MainSortLikeBtn';
+import Carousel from './Carousel';
 
 const BackgroundImg = styled.img`
   object-fit: cover;
@@ -120,7 +121,7 @@ const Main = () => {
           })}
         </PostsWrapper>
         <Praise />
-        <SingleArticle />
+        <Carousel />
       </InnerWrapper>
     </StyledMainWrapper>
   )
