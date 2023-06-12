@@ -55,3 +55,62 @@ h2 {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+
+/* Carousel component */
+.cards-articles img {
+  width: 100%;
+}
+
+.slider-container .slick-dots {
+  position: absolute;
+  bottom: -2.8rem; 
+  left: 49%; 
+  transform: translateX(-50%);
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* gap between the dots */
+.slider-container .slick-dots li {
+  margin-right: 36px; 
+}
+
+.slider-container .slick-dots li button:before {
+  content: "";
+  position: absolute;
+  width: 20px; 
+  height: 20px; 
+  background-color: #e4dec9; 
+  opacity: 0.8; 
+  border-radius: 40px;
+}
+
+.slider-container .slick-dots li.slick-active button:before {
+  background-color: #396d7c; 
+}
+
+.slider-container .slick-prev:before {
+  color: #396d7c;
+}
+
+.slider-container .slick-next:before {
+  color: #396d7c;
+}
+
+.slider-container {
+  width: 320px;
+  border-radius: 15px;
+  margin: 20px;
+}
+
+a {
+  text-decoration: none;
+ }
+ 
+a:hover {
+  text-decoration: underline;
+  color: #03092E;
+}
