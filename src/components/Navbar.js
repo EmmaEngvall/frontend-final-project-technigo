@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { StyledNavBar, StyledNavLink, UlElements, LiElements, ElementP, ToggleButton, NavWrapper } from 'styled/NavbarStyled';
 import CloseMenuIcon from '../icons/phone-menu-close.svg';
 import OpenMenuIcon from '../icons/phone-menu-open.svg';
@@ -8,6 +9,7 @@ const Navbar = () => {
   // useRef to be able to connect to the DOM element and detect if mouseclick/scroll
   // is within navbar or outside
   const navRef = useRef(null);
+  const location = useLocation();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -29,6 +31,10 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScrollOutside);
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname])
 
   console.log(isOpen)
   return (
