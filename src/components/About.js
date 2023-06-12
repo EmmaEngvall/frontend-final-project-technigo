@@ -14,6 +14,7 @@ const About = () => {
     <div>
       <BackgroundContainer>
         <BackgroundImg src={ImageBackground} />
+        <p>Photo by X on Unsplash</p>
       </BackgroundContainer>
       <h2>Vision</h2>
       <p>”Our vision is to create a place for inspiration where you can share

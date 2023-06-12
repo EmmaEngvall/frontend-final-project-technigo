@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { StyledNavBar, StyledNavLink, UlElements, LiElements, ElementP, ToggleButton, NavWrapper } from 'styled/NavbarStyled';
+import { useSelector, useDispatch } from 'react-redux';
+import user from 'reducers/user';
+import surfPosts from 'reducers/surfPosts';
+import { StyledNavBar, StyledNavLink, UlElements, LiElements, ElementP, ToggleButton, NavWrapper, LogoutButton } from 'styled/NavbarStyled';
 import CloseMenuIcon from '../icons/phone-menu-close.svg';
 import OpenMenuIcon from '../icons/phone-menu-open.svg';
 
@@ -10,6 +13,8 @@ const Navbar = () => {
   // is within navbar or outside
   const navRef = useRef(null);
   const location = useLocation();
+  const dispatch = useDispatch();
+  const accessToken = useSelector((store) => store.user.accessToken);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -36,6 +41,14 @@ const Navbar = () => {
     setIsOpen(false);
   }, [location.pathname])
 
+  const OnLogoutButtonClick = () => {
+    dispatch(user.actions.setAccessToken(null));
+    dispatch(user.actions.setUsername(null));
+    dispatch(user.actions.setUserId(null));
+    dispatch(user.actions.setError(null));
+    dispatch(surfPosts.actions.setCreatedByUserItems([]));
+  };
+
   console.log(isOpen)
   return (
     <StyledNavBar>
@@ -56,9 +69,14 @@ const Navbar = () => {
             <LiElements>
               <StyledNavLink to="/contact"><ElementP>Contact</ElementP></StyledNavLink>
             </LiElements>
-            <LiElements>
-              <StyledNavLink to="/login"><ElementP>Register/Login</ElementP></StyledNavLink>
-            </LiElements>
+            {(!accessToken) ? (
+              <LiElements>
+                <StyledNavLink to="/login"><ElementP>Register/Login</ElementP></StyledNavLink>
+              </LiElements>)
+              : (
+                <LiElements>
+                  <LogoutButton type="button" onClick={OnLogoutButtonClick}><ElementP>Log out</ElementP></LogoutButton>
+                </LiElements>)}
           </UlElements>
         </nav>
       </NavWrapper>

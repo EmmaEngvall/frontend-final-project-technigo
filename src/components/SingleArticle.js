@@ -15,9 +15,7 @@ const SingleArticle = () => {
           laidback lifestyle.
         </p>
         <img src={imgVarberg} alt="Beach in Varberg" />
-        <p>Photo by X on Unsplash
-
-        </p>
+        <p>Photo by X on Unsplash</p>
       </div>
       <div className="Article">
         <h2>Cold but beautiful, surfing adventure in Lofoten</h2>

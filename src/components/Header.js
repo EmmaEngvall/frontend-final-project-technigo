@@ -1,24 +1,23 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { HomeButton, Logo, StyledHeader } from 'styled/HeaderStyled';
 import logo from '../images/logo_white_new.jpg';
 import Navbar from './Navbar';
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const goToHome = () => {
+    navigate('/')
+  };
+
   return (
-    <header>
-      <div className="logo">
-        <img className="logo" src={logo} alt="logo" />
-      </div>
+    <StyledHeader>
+      <HomeButton type="button" onClick={goToHome}>
+        <Logo src={logo} alt="logo" />
+      </HomeButton>
       <Navbar />
-      {/* <nav>
-        <NavLink to="/"><p>Home</p></NavLink>
-        <NavLink to="/login"><p>Register/Login</p></NavLink>
-        <NavLink to="/profile"><p>My profile</p></NavLink>
-        <NavLink to="/about"><p>About</p></NavLink>
-        <NavLink to="/contact"><p>Contact</p></NavLink>
-        <NavLink to="/credits"><p>Credits</p></NavLink>
-      </nav> */}
-    </header>
+    </StyledHeader>
   )
 }
 

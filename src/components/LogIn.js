@@ -139,6 +139,7 @@ const LogIn = () => {
       </InnerWrapper>
       <BackgroundContainer>
         <BackgroundImg src={ImageBackground} />
+        <p>Photo by X on Unsplash</p>
       </BackgroundContainer>
     </StyledMainWrapper>
   );

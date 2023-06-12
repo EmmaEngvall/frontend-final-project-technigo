@@ -7,6 +7,16 @@ top: 0;
 left: 0;
 width: 100vw;
 z-index: 1;
+
+@media (min-width: 667px){
+  width: 90vw;
+  justify-content: space-between;
+  position: initial;
+  z-index: initial;
+  top: initial;
+  left: initial;
+  align-items: center;
+}
 `
 export const UlElements = styled.ul`
   display: flex;
@@ -74,6 +84,18 @@ export const ToggleButton = styled.button`
     display: none;
 }
 `
+
+export const LogoutButton = styled.button`
+  height: fit-content;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+`
+
 export const NavWrapper = styled.div`
 
   @media (max-width: 666px){
@@ -98,6 +120,7 @@ export const NavWrapper = styled.div`
   @media (min-width: 667px){
     justify-content: flex-end;
     width: 100%;
+    z-index: 0;
   }
   @media (min-width: 1024px){
     justify-content: center;

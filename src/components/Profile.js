@@ -115,6 +115,7 @@ const Profile = () => {
       <InnerWrapper>
         <BackgroundContainer>
           <BackgroundImg src={ImageBackground} />
+          <p>Photo by X on Unsplash</p>
         </BackgroundContainer>
         <GreetingText>Welcome {username} to your profile!</GreetingText>
         <LogoutButton type="button" onClick={OnLogoutButtonClick}>Log out</LogoutButton>

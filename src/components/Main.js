@@ -93,6 +93,7 @@ const Main = () => {
       <InnerWrapper>
         <BackgroundContainer>
           <BackgroundImg src={ImageBackground} />
+          <p>Photo by X on Unsplash</p>
         </BackgroundContainer>
         <GreetingText>Welcome to Wave Finder!</GreetingText>
         {(!accessToken) ? (
@@ -103,6 +104,7 @@ const Main = () => {
             </NavLink>
           </>)
           : (<p>Hello {username}</p>)}
+        <Carousel />
         <Weather />
         <p>Recommendations that our members have shared...</p>
         <PostsWrapper>
@@ -133,7 +135,6 @@ const Main = () => {
           })}
         </PostsWrapper>
         <Praise />
-        <Carousel />
       </InnerWrapper>
     </StyledMainWrapper>
   )

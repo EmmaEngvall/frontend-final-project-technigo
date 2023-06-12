@@ -28,6 +28,7 @@ const Weather = () => {
   return (
     <div>
       <StyledForm onSubmit={onSearchSubmit}>
+        <h2>Get ready to surf with a fresh weather report</h2>
         <label htmlFor="citySearch">Search for weather in a city
           <input
             type="text"
