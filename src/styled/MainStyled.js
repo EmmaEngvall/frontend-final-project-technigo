@@ -65,6 +65,12 @@ export const Headline = styled.p`
   color: #257ca3;
 `
 
+export const CreditTxt = styled.p`
+  font-family: Poppins;
+  font-size: 0.6rem;
+  color: #a6a6a6;
+`
+
 export const Location = styled.p`
   font-weight: 400;
 `
@@ -72,3 +78,78 @@ export const Location = styled.p`
 export const Message = styled.p`
   font-weight: 300;
 `
+
+export const SortBtn = styled.button`
+  border: 2px solid #257ca3;
+  color: #257ca3;
+  background-color: white;
+  width: 100px;
+  border-radius: 5px;
+  font-family: Urbanist;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 16px;
+
+  &:hover {
+    border: 2px solid #257ca3;
+    background-color: #257ca3;
+    color: white;
+  }
+`
+
+export const SortLevel = styled.select`
+  width: 140px;
+  border-radius: 5px;
+  font-family: Urbanist;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 1.4rem;
+`
+
+export const SortLocation = styled.select`
+  width: 140px;
+  border-radius: 5px;
+  font-family: Urbanist;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 1.4rem;
+`
+
+export const SortLabel = styled.label`
+  font-family: Urbanist;
+  font-weight: 600;
+`
+
+export const FavBtn = styled.button`
+  border: 2px solid #257ca3;
+  color: #257ca3;
+  background-color: white;
+  width: 120px;
+  border-radius: 5px;
+  font-family: Urbanist;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 16px;
+  margin-left: 16px;
+
+  &:focus {
+    background-color: white;
+    box-shadow: 0 5px #257ca3;
+  }
+  `
+
+export const LikeBtn = styled.button`
+  border: 2px solid #257ca3;
+  color: #257ca3;
+  background-color: white;
+  width: 60px;
+  border-radius: 5px;
+  font-family: Urbanist;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:focus {
+    background-color: white;
+    box-shadow: 0 5px #257ca3;
+  }
+  `

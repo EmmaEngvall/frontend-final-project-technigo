@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import surfPosts from 'reducers/surfPosts';
+import { CancelDltBtn, ConfirmDltBtn, DeleteBtn } from 'styled/ProfileStyled';
 import { API_URL } from 'utils/urls';
 
 const DltBtn = ({ id }) => {
@@ -35,16 +36,16 @@ const DltBtn = ({ id }) => {
   return (
     <div>
       {(cfmDlt) ? (
-        <button type="button" onClick={() => setCfmDlt(false)}>NO</button>
+        <CancelDltBtn type="button" onClick={() => setCfmDlt(false)}>NO</CancelDltBtn>
       ) : (
-        <button type="button" onClick={() => setCfmDlt(true)}><p>🗑️Delete post</p></button>
+        <DeleteBtn type="button" onClick={() => setCfmDlt(true)}><p>🗑️Delete post</p></DeleteBtn>
       )} {(cfmDlt) && (
-        <button
+        <ConfirmDltBtn
           key="dltBtn"
           type="submit"
           onClick={handleDlt}>
           <p>Yes</p>
-        </button>)}
+        </ConfirmDltBtn>)}
     </div>
   )
 };

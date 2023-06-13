@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
-import { StyledForm, SubmitButton } from 'styled/PostFormStyled';
+import { ResetButton, StyledForm, SubmitButton } from 'styled/PostFormStyled';
 
 const PostForm = () => {
   const dispatch = useDispatch();
@@ -103,11 +103,11 @@ const PostForm = () => {
           onChange={(e) => setMessage(e.target.value)} />
       </label>
       <SubmitButton type="submit">Submit</SubmitButton>
-      <button
+      <ResetButton
         type="button"
         onClick={handleReset}>
         Reset
-      </button>
+      </ResetButton>
     </StyledForm>
   )
 }

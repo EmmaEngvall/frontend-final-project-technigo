@@ -3,6 +3,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
 import { ArticleContainer, TitleArticle, StyledHeadline, CardsArticles } from 'styled/CarouselStyled';
+import { CreditTxt } from 'styled/MainStyled';
 import imgVarberg from '../images/article_Varberg.jpg';
 import imgLofoten from '../images/article_Lofoten.jpg';
 import imgCornwall from '../images/article_Cornwall.jpg';
@@ -29,7 +30,7 @@ const Carousel = () => {
               <TitleArticle>Surfing in Varberg: Sweden&apos;s Coastal Gem</TitleArticle>
               <img className="article_1" src={imgVarberg} alt="Beach in Varberg" />
             </Link>
-            <p>Photo by
+            <CreditTxt>Photo by
               <a
                 href="https://unsplash.com/@samuelbryngelsson?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
                 target="_blank"
@@ -40,7 +41,7 @@ const Carousel = () => {
                 target="_blank"
                 rel="noopener noreferrer"> Unsplash
               </a>
-            </p>
+            </CreditTxt>
           </CardsArticles>
 
           <CardsArticles>
@@ -50,7 +51,7 @@ const Carousel = () => {
               <TitleArticle>Cold but beautiful, surfing in Lofoten</TitleArticle>
               <img className="article_2" src={imgLofoten} alt="Surfers in dry suits" />
             </Link>
-            <p>Photo by
+            <CreditTxt>Photo by
               <a
                 href="https://unsplash.com/@johnygoerend?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
                 target="_blank"
@@ -61,7 +62,7 @@ const Carousel = () => {
                 target="_blank"
                 rel="noopener noreferrer"> Unsplash
               </a>
-            </p>
+            </CreditTxt>
           </CardsArticles>
 
           <CardsArticles>
@@ -71,7 +72,7 @@ const Carousel = () => {
               <TitleArticle>Beautiful Cornwall, not just pasture</TitleArticle>
               <img className="article_3" src={imgCornwall} alt="Cliffs and ocean in Cornwall" />
             </Link>
-            <p>Photo by
+            <CreditTxt>Photo by
               <a
                 href="https://unsplash.com/@hilesy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
                 target="_blank"
@@ -82,7 +83,7 @@ const Carousel = () => {
                 target="_blank"
                 rel="noopener noreferrer"> Unsplash
               </a>
-            </p>
+            </CreditTxt>
           </CardsArticles>
 
           <CardsArticles>
@@ -92,7 +93,7 @@ const Carousel = () => {
               <TitleArticle>Burleigh Heads never disappoints</TitleArticle>
               <img className="article_4" src={imgBH} alt="Surfers waiting for waves at Burleigh Heads" />
             </Link>
-            <p>Photo by
+            <CreditTxt>Photo by
               <a
                 href="https://unsplash.com/@mannydream?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
                 target="_blank"
@@ -103,7 +104,7 @@ const Carousel = () => {
                 target="_blank"
                 rel="noopener noreferrer"> Unsplash
               </a>
-            </p>
+            </CreditTxt>
           </CardsArticles>
         </Slider>
       </div>

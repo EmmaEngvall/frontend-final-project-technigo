@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { API_URL } from 'utils/urls';
 import styled from 'styled-components/macro';
 import { StyledMainWrapper, InnerWrapper, RadioButtonWrapper, StyledForm, ErrorMessage, LabelForm, StyledHeader, SignUpText, BackgroundContainer, SubmitButton } from 'styled/LoginStyled';
+import { CreditTxt } from 'styled/MainStyled';
 import user from '../reducers/user';
 import ImageBackground from '../images/img_login.jpg';
 
@@ -139,7 +140,7 @@ const LogIn = () => {
       </InnerWrapper>
       <BackgroundContainer>
         <BackgroundImg src={ImageBackground} />
-        <p>Photo by
+        <CreditTxt>Photo by
           <a
             href="https://unsplash.com/@delphinenz?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
             target="_blank"
@@ -150,7 +151,7 @@ const LogIn = () => {
             target="_blank"
             rel="noopener noreferrer"> Unsplash
           </a>
-        </p>
+        </CreditTxt>
       </BackgroundContainer>
     </StyledMainWrapper>
   );

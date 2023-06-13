@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 // import user from 'reducers/user';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
-import { InnerWrapper, StyledMainWrapper, PostsWrapper, SinglePostWrapper, GreetingText, LogoutButton, Headline, Location, Message } from 'styled/MainStyled';
+import { InnerWrapper, StyledMainWrapper, PostsWrapper, SinglePostWrapper, GreetingText, LogoutButton, Headline, Location, Message, CreditTxt, LikeBtn } from 'styled/MainStyled';
 import styled from 'styled-components/macro';
 import { BackgroundContainer } from 'styled/LoginStyled';
 import HandleFav from './HandleFav';
@@ -115,7 +115,7 @@ const Main = () => {
       <InnerWrapper>
         <BackgroundContainer>
           <BackgroundImg src={ImageBackground} />
-          <p>Photo by
+          <CreditTxt>Photo by
             <a
               href="https://unsplash.com/@joshwithers?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
               target="_blank"
@@ -126,7 +126,7 @@ const Main = () => {
               target="_blank"
               rel="noopener noreferrer"> Unsplash
             </a>
-          </p>
+          </CreditTxt>
         </BackgroundContainer>
         <GreetingText>Welcome to Wave Finder!</GreetingText>
         {(!accessToken) ? (
@@ -142,7 +142,7 @@ const Main = () => {
         {(loading) ? (
           <p>Loading recommendations that our members have shared...</p>)
           : (
-            <p>Recommendations that our members have shared...</p>)}
+            <h2>Recommendations from our members...</h2>)}
         <PostsWrapper>
           <MainFilterLevel />
           <MainSortOldNewBtn />
@@ -156,14 +156,14 @@ const Main = () => {
                 <Message>{item.message}</Message>
                 <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
                 <div className="tooltip">
-                  <button
+                  <LikeBtn
                     key="likeBtn"
                     type="submit"
                     onClick={() => handleLikeChange(item._id)}
                     disabled={(!accessToken)}>
                     <p>🤙 x {item.numOfLikes}</p>
                     {(!accessToken) && <span className="tooltiptext">Become a member to like a post</span>}
-                  </button>
+                  </LikeBtn>
                 </div>
                 <HandleFav id={item._id} />
               </SinglePostWrapper>

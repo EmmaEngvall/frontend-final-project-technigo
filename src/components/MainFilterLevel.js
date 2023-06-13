@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import surfPosts from 'reducers/surfPosts';
+import { SortLabel, SortLevel, SortLocation } from 'styled/MainStyled';
 
 const MainFilterLevel = () => {
   const [selectedLevel, setSelectedLevel] = useState('all');
@@ -68,8 +69,8 @@ const MainFilterLevel = () => {
   return (
     <div>
       <div>
-        <label htmlFor="levelSelect">Sort on Surf level
-          <select onChange={handleLevelChanges} value={selectedLevel}>
+        <SortLabel htmlFor="levelSelect">Sort on Surf level
+          <SortLevel onChange={handleLevelChanges} value={selectedLevel}>
             <option value="all" disabled>Sort on level</option>
             <option value="all">All levels</option>
             {sortedLevels.map((level) => {
@@ -77,12 +78,12 @@ const MainFilterLevel = () => {
                 <option key={level} value={level}>{level}</option>
               )
             })}
-          </select>
-        </label>
+          </SortLevel>
+        </SortLabel>
       </div>
       <div>
-        <label htmlFor="locationSelect">Sort on Location
-          <select onChange={handleLocationChanges} value={selectedLocation}>
+        <SortLabel htmlFor="locationSelect">Sort on Location
+          <SortLocation onChange={handleLocationChanges} value={selectedLocation}>
             <option value="all" disabled>Filter by location</option>
             <option value="all">Clear filter</option>
             {uniqueLocations
@@ -92,8 +93,8 @@ const MainFilterLevel = () => {
                   <option key={location} value={location}>{location}</option>
                 )
               })}
-          </select>
-        </label>
+          </SortLocation>
+        </SortLabel>
       </div>
     </div>
   )

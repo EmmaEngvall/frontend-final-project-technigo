@@ -29,5 +29,3 @@ const ArticleDetails = () => {
 }
 
 export default ArticleDetails
-
-// Add weather forecast for destination?

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import surfPosts from 'reducers/surfPosts';
+import { SortBtn } from 'styled/MainStyled';
 
 const MainSortOnLikes = () => {
   const [currentSortOrder, setCurrentSortOrder] = useState('desc')
@@ -29,12 +30,12 @@ const MainSortOnLikes = () => {
   };
 
   return (
-    <button
+    <SortBtn
       key="sortBtn"
       type="button"
       onClick={handleSortOnLikes}>
       {(currentSortOrder === 'reset') ? 'Reset Like Filter' : 'Sort on Most Likes'}
-    </button>
+    </SortBtn>
   )
 }
 

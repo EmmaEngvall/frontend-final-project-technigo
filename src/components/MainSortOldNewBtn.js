@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import surfPosts from 'reducers/surfPosts';
+import { SortBtn } from 'styled/MainStyled';
 
 const MainSortOldNewBtn = () => {
   const [currentSortOrder, setCurrentSortOrder] = useState('desc')
@@ -31,12 +32,12 @@ const MainSortOldNewBtn = () => {
   };
 
   return (
-    <button
+    <SortBtn
       key="sortBtn"
       type="button"
       onClick={handleSortAllPosts}>
       {(currentSortOrder === 'desc') ? 'Sort Old to New' : 'Sort New to Old'}
-    </button>
+    </SortBtn>
   )
 }
 

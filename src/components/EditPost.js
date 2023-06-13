@@ -2,7 +2,7 @@
 import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import surfPosts from 'reducers/surfPosts';
-import { Message } from 'styled/ProfileStyled';
+import { CancelBtn, EditBtn, Message, SaveBtn } from 'styled/ProfileStyled';
 import { API_URL } from 'utils/urls';
 
 const EditPost = ({ message, id }) => {
@@ -51,11 +51,11 @@ const EditPost = ({ message, id }) => {
         <Message>{message}</Message>
       )}
       {editing ? (
-        <button type="button" onClick={() => setEditing(false)}>Cancel</button>
+        <CancelBtn type="button" onClick={() => setEditing(false)}>Cancel</CancelBtn>
       ) : (
-        <button type="button" onClick={() => setEditing(true)}>✍️Edit</button>
+        <EditBtn type="button" onClick={() => setEditing(true)}>Edit</EditBtn>
       )}
-      {editing && <button type="submit" onClick={handleEdit}>Save</button>}
+      {editing && <SaveBtn type="submit" onClick={handleEdit}>Save</SaveBtn>}
     </div>
   )
 }

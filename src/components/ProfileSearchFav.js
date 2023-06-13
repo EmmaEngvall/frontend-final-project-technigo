@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import surfPosts from 'reducers/surfPosts';
+import { SortLocation } from 'styled/MainStyled';
 
 const ProfileSearchFav = () => {
   const [selectedLocation, setSelectedLocation] = useState('');
@@ -29,7 +30,7 @@ const ProfileSearchFav = () => {
   const uniqueLocations = [...new Set(originalMyFavPost.map((items) => items.location))];
 
   return (
-    <select onChange={handleFilterChanges} value={selectedLocation}>
+    <SortLocation onChange={handleFilterChanges} value={selectedLocation}>
       <option value="" disabled>Filter by location</option>
       <option value="">Show all favourites</option>
       {uniqueLocations
@@ -39,7 +40,7 @@ const ProfileSearchFav = () => {
             <option key={item} value={item}>{item}</option>
           )
         })}
-    </select>
+    </SortLocation>
   )
 }
 

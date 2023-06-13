@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import surfPosts from 'reducers/surfPosts';
+import { FavBtn } from 'styled/MainStyled';
 import { API_URL } from 'utils/urls';
 
 const HandleFav = ({ id }) => {
@@ -65,14 +66,14 @@ const HandleFav = ({ id }) => {
 
   return (
     <div className="tooltip">
-      <button
+      <FavBtn
         key="favBtn"
         type="submit"
         onClick={handleAddFav}
         disabled={(!accessToken)}>
         <p>{favoriteButtonText}</p>
         {(!accessToken) && <span className="tooltiptext">Become a member to save a favorite</span>}
-      </button>
+      </FavBtn>
     </div>
   )
 };

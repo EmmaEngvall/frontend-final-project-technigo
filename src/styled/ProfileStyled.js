@@ -72,3 +72,74 @@ export const Location = styled.p`
 export const Message = styled.p`
   font-weight: 300;
 `
+
+export const EditBtn = styled.button`
+  border: 2px solid #257ca3;
+  color: white;
+  background-color: #257ca3;
+  width: 100px;
+  border-radius: 5px;
+  font-family: Urbanist;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 16px;
+`
+
+export const CancelBtn = styled.button`
+  border: 2px solid #257ca3;
+  color: white;
+  background-color: #257ca3;
+  width: 60px;
+  border-radius: 5px;
+  font-family: Urbanist;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 16px;
+`
+
+export const SaveBtn = styled.button`
+  border: 2px solid #257ca3;
+  color: white;
+  background-color: #257ca3;
+  width: 60px;
+  border-radius: 5px;
+  font-family: Urbanist;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 16px;
+`
+
+export const DeleteBtn = styled.button`
+  border: 2px solid #257ca3;
+  color: white;
+  background-color: #257ca3;
+  width: 100px;
+  border-radius: 5px;
+  font-family: Urbanist;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 16px;
+
+`
+
+export const ConfirmDltBtn = styled.button`
+  border: 2px solid #257ca3;
+  color: white;
+  background-color: #257ca3;
+  width: 60px;
+  border-radius: 5px;
+  font-family: Urbanist;
+  font-weight: 500;
+  cursor: pointer;
+`
+
+export const CancelDltBtn = styled.button`
+  border: 2px solid #257ca3;
+  color: white;
+  background-color: #257ca3;
+  width: 60px;
+  border-radius: 5px;
+  font-family: Urbanist;
+  font-weight: 500;
+  cursor: pointer;
+`

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { BackgroundContainer } from 'styled/LoginStyled';
+import { CreditTxt } from 'styled/MainStyled';
 import ImageBackground from '../images/img_about.jpg';
 
 const BackgroundImg = styled.img`
@@ -14,7 +15,7 @@ const About = () => {
     <div>
       <BackgroundContainer>
         <BackgroundImg src={ImageBackground} />
-        <p>Photo by
+        <CreditTxt>Photo by
           <a
             href="https://unsplash.com/@bradhalcrow?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
             target="_blank"
@@ -25,7 +26,7 @@ const About = () => {
             target="_blank"
             rel="noopener noreferrer"> Unsplash
           </a>
-        </p>
+        </CreditTxt>
       </BackgroundContainer>
       <h2>Vision</h2>
       <p>”Our vision is to create a place for inspiration where you can share

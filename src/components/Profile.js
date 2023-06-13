@@ -8,6 +8,7 @@ import { API_URL } from 'utils/urls';
 import { InnerWrapper, StyledMainWrapper, PostsWrapper, SinglePostWrapper, GreetingText, LogoutButton, Headline, Location, Message } from 'styled/ProfileStyled';
 import styled from 'styled-components/macro';
 import { BackgroundContainer } from 'styled/LoginStyled';
+import { CreditTxt, SortBtn } from 'styled/MainStyled';
 import PostForm from './PostForm';
 import HandleFav from './HandleFav';
 import DltBtn from './DltBtn';
@@ -115,7 +116,7 @@ const Profile = () => {
       <InnerWrapper>
         <BackgroundContainer>
           <BackgroundImg src={ImageBackground} />
-          <p>Photo by
+          <CreditTxt>Photo by
             <a
               href="https://unsplash.com/@kdarmody?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
               target="_blank"
@@ -126,19 +127,19 @@ const Profile = () => {
               target="_blank"
               rel="noopener noreferrer"> Unsplash
             </a>
-          </p>
+          </CreditTxt>
         </BackgroundContainer>
         <GreetingText>Welcome {username} to your profile!</GreetingText>
         <LogoutButton type="button" onClick={OnLogoutButtonClick}>Log out</LogoutButton>
         <h2>Create a post</h2>
         <PostForm />
         <h2>My posts</h2>
-        <button
+        <SortBtn
           key="sortBtn"
           type="button"
           onClick={() => handleSortMyPosts()}>
           {(currentSortOrder === 'desc') ? <p>Sort Old to New</p> : <p>Sort New to Old</p>}
-        </button>
+        </SortBtn>
         {/* <button
           key="unSortBtn"
           type="button">
