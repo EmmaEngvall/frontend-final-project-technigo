@@ -9,11 +9,11 @@ import Contact from 'components/Contact';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import LogIn from 'components/LogIn';
-import SingleArticle from 'components/SingleArticle';
 import Profile from 'components/Profile';
 import NotFound from 'components/NotFound';
 import Main from 'components/Main';
 import GlobalStyled from 'styled/GlobalStyled';
+import ArticleDetails from 'components/ArticleDetails';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -29,7 +29,7 @@ export const App = () => {
           <Header />
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/singleArticle/:id" element={<SingleArticle />} />
+            <Route path="/singleArticle/:articleId" element={<ArticleDetails />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/about" element={<About />} />

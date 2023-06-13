@@ -26,7 +26,7 @@ const Profile = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const username = useSelector((store) => store.user.username);
   const navigate = useNavigate();
-  const [currentSortOrder, setCurrentSortOrder] = useState('')
+  const [currentSortOrder, setCurrentSortOrder] = useState('desc')
   const allMySurfPosts = useSelector((store) => store.surfPosts.createdByUserItems);
 
   useEffect(() => {
