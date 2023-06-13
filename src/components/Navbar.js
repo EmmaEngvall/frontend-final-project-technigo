@@ -49,7 +49,6 @@ const Navbar = () => {
     dispatch(surfPosts.actions.setCreatedByUserItems([]));
   };
 
-  console.log(isOpen)
   return (
     <StyledNavBar>
       {isOpen && <ToggleButton onClick={() => setIsOpen(false)}><img src={CloseMenuIcon} alt="icon for close menu option" /></ToggleButton>}

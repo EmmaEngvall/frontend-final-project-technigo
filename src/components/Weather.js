@@ -7,7 +7,8 @@ import { StyledForm, SubmitButton } from 'styled/LoginStyled';
 const Weather = () => {
   const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
   const [forecast, setForecast] = useState([]);
-  const [citySearch, setCitySearch] = useState('')
+  const [citySearch, setCitySearch] = useState('');
+  const [displayCity, setDisplayCity] = useState('');
 
   const onSearchSubmit = (event) => {
     event.preventDefault();
@@ -17,14 +18,17 @@ const Weather = () => {
     )
       .then((response) => response.json())
       .then((fiveDay) => {
+        const searchedCity = fiveDay.city.name;
         const filteredForecast = fiveDay.list.filter((item) => item.dt_txt.includes('12:00:00'));
         setForecast(filteredForecast);
+        setDisplayCity(searchedCity);
         setCitySearch('');
       })
       .catch((error) => {
         console.error('Error fetching weather forecast:', error);
       });
   }
+
   return (
     <div>
       <StyledForm onSubmit={onSearchSubmit}>
@@ -37,9 +41,9 @@ const Weather = () => {
             placeholder="Enter a city"
             onChange={(e) => setCitySearch(e.target.value)} />
         </label>
-        <SubmitButton type="submit">Submit</SubmitButton>
+        <SubmitButton type="submit">Search</SubmitButton>
       </StyledForm>
-      {(forecast.length) ? <p>Five-day weather forecast for {citySearch}</p> : ''}
+      {(forecast.length) ? <p>Five-day weather forecast for {displayCity}</p> : ''}
       {forecast.map((item) => {
         const date = new Date(item.dt * 1000);
         const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });

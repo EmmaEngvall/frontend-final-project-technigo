@@ -14,7 +14,18 @@ const About = () => {
     <div>
       <BackgroundContainer>
         <BackgroundImg src={ImageBackground} />
-        <p>Photo by X on Unsplash</p>
+        <p>Photo by
+          <a
+            href="https://unsplash.com/@bradhalcrow?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            target="_blank"
+            rel="noopener noreferrer"> Brad Halcrow
+          </a> on
+          <a
+            href="https://unsplash.com/photos/8hJ8TFF7Mgw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            target="_blank"
+            rel="noopener noreferrer"> Unsplash
+          </a>
+        </p>
       </BackgroundContainer>
       <h2>Vision</h2>
       <p>”Our vision is to create a place for inspiration where you can share

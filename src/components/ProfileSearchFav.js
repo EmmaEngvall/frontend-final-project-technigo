@@ -26,13 +26,15 @@ const ProfileSearchFav = () => {
     filterPostByLocation(location);
   }
 
+  const uniqueLocations = [...new Set(originalMyFavPost.map((items) => items.location))];
+
   return (
     <select onChange={handleFilterChanges} value={selectedLocation}>
       <option value="" disabled>Filter by location</option>
       <option value="">Show all favourites</option>
-      {originalMyFavPost.map((item) => {
+      {uniqueLocations.map((item) => {
         return (
-          <option key={item.location} value={item.location}>{item.location}</option>
+          <option key={item} value={item}>{item}</option>
         )
       })}
     </select>

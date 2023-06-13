@@ -115,7 +115,18 @@ const Profile = () => {
       <InnerWrapper>
         <BackgroundContainer>
           <BackgroundImg src={ImageBackground} />
-          <p>Photo by X on Unsplash</p>
+          <p>Photo by
+            <a
+              href="https://unsplash.com/@kdarmody?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              target="_blank"
+              rel="noopener noreferrer"> Kate Darmody
+            </a> on
+            <a
+              href="https://unsplash.com/photos/eFL0yp401w4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              target="_blank"
+              rel="noopener noreferrer"> Unsplash
+            </a>
+          </p>
         </BackgroundContainer>
         <GreetingText>Welcome {username} to your profile!</GreetingText>
         <LogoutButton type="button" onClick={OnLogoutButtonClick}>Log out</LogoutButton>

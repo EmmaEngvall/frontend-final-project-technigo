@@ -93,7 +93,18 @@ const Main = () => {
       <InnerWrapper>
         <BackgroundContainer>
           <BackgroundImg src={ImageBackground} />
-          <p>Photo by X on Unsplash</p>
+          <p>Photo by
+            <a
+              href="https://unsplash.com/@joshwithers?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              target="_blank"
+              rel="noopener noreferrer"> Josh Withers
+            </a> on
+            <a
+              href="https://unsplash.com/photos/1PWhYZ_erME?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              target="_blank"
+              rel="noopener noreferrer"> Unsplash
+            </a>
+          </p>
         </BackgroundContainer>
         <GreetingText>Welcome to Wave Finder!</GreetingText>
         {(!accessToken) ? (

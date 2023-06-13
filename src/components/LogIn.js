@@ -139,7 +139,18 @@ const LogIn = () => {
       </InnerWrapper>
       <BackgroundContainer>
         <BackgroundImg src={ImageBackground} />
-        <p>Photo by X on Unsplash</p>
+        <p>Photo by
+          <a
+            href="https://unsplash.com/@delphinenz?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            target="_blank"
+            rel="noopener noreferrer"> Delphine Ducaruge
+          </a> on
+          <a
+            href="https://unsplash.com/photos/7DgLMKBJmdo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            target="_blank"
+            rel="noopener noreferrer"> Unsplash
+          </a>
+        </p>
       </BackgroundContainer>
     </StyledMainWrapper>
   );
