@@ -35,7 +35,7 @@ const MainSortOldNewBtn = () => {
       key="sortBtn"
       type="button"
       onClick={handleSortAllPosts}>
-      {(currentSortOrder === 'desc') ? 'Show Old to New' : 'Show New to Old'}
+      {(currentSortOrder === 'desc') ? 'Sort Old to New' : 'Sort New to Old'}
     </button>
   )
 }

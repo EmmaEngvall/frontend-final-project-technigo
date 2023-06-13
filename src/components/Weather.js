@@ -28,7 +28,7 @@ const Weather = () => {
         console.error('Error fetching weather forecast:', error);
       });
   }
-  console.log(forecast)
+
   return (
     <div>
       <StyledForm onSubmit={onSearchSubmit}>

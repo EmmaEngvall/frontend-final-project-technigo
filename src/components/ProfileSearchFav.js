@@ -32,11 +32,13 @@ const ProfileSearchFav = () => {
     <select onChange={handleFilterChanges} value={selectedLocation}>
       <option value="" disabled>Filter by location</option>
       <option value="">Show all favourites</option>
-      {uniqueLocations.map((item) => {
-        return (
-          <option key={item} value={item}>{item}</option>
-        )
-      })}
+      {uniqueLocations
+        .sort((a, b) => a.localeCompare(b))
+        .map((item) => {
+          return (
+            <option key={item} value={item}>{item}</option>
+          )
+        })}
     </select>
   )
 }

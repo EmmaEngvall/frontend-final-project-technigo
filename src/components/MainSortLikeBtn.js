@@ -33,7 +33,7 @@ const MainSortOnLikes = () => {
       key="sortBtn"
       type="button"
       onClick={handleSortOnLikes}>
-      {(currentSortOrder === 'reset') ? 'reset filter' : 'sort on most Likes'}
+      {(currentSortOrder === 'reset') ? 'Reset Like Filter' : 'Sort on Most Likes'}
     </button>
   )
 }

@@ -137,7 +137,7 @@ const Profile = () => {
           key="sortBtn"
           type="button"
           onClick={() => handleSortMyPosts()}>
-          Sort oldest to newest
+          {(currentSortOrder === 'desc') ? <p>Sort Old to New</p> : <p>Sort New to Old</p>}
         </button>
         {/* <button
           key="unSortBtn"

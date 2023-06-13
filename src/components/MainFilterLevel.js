@@ -49,14 +49,30 @@ const MainFilterLevel = () => {
   const uniqueLocations = [...new Set(filteredItemsState.map((items) => items.location))];
   const uniqueLevels = [...new Set(filteredItemsState.map((items) => items.level))];
 
+  const beginnerPresent = uniqueLevels.includes('beginner');
+  const intermediatePresent = uniqueLevels.includes('intermediate');
+  const advancedPresent = uniqueLevels.includes('advanced');
+
+  let sortedLevels = uniqueLevels;
+
+  if (beginnerPresent && intermediatePresent && advancedPresent) {
+    sortedLevels = ['beginner', 'intermediate', 'advanced']
+  } else if (beginnerPresent && intermediatePresent) {
+    sortedLevels = ['beginner', 'intermediate'];
+  } else if (beginnerPresent && advancedPresent) {
+    sortedLevels = ['beginner', 'advanced'];
+  } else if (intermediatePresent && advancedPresent) {
+    sortedLevels = ['intermediate', 'advanced'];
+  }
+
   return (
     <div>
       <div>
-        <label htmlFor="levelSelect">Sort on level
+        <label htmlFor="levelSelect">Sort on Surf level
           <select onChange={handleLevelChanges} value={selectedLevel}>
             <option value="all" disabled>Sort on level</option>
             <option value="all">All levels</option>
-            {uniqueLevels.map((level) => {
+            {sortedLevels.map((level) => {
               return (
                 <option key={level} value={level}>{level}</option>
               )
@@ -65,15 +81,17 @@ const MainFilterLevel = () => {
         </label>
       </div>
       <div>
-        <label htmlFor="locationSelect">Sort on location
+        <label htmlFor="locationSelect">Sort on Location
           <select onChange={handleLocationChanges} value={selectedLocation}>
             <option value="all" disabled>Filter by location</option>
             <option value="all">Clear filter</option>
-            {uniqueLocations.map((location) => {
-              return (
-                <option key={location} value={location}>{location}</option>
-              )
-            })}
+            {uniqueLocations
+              .sort((a, b) => a.localeCompare(b))
+              .map((location) => {
+                return (
+                  <option key={location} value={location}>{location}</option>
+                )
+              })}
           </select>
         </label>
       </div>

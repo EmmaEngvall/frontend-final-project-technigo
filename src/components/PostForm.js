@@ -77,7 +77,7 @@ const PostForm = () => {
           checked={level === 'beginner'}
           onChange={() => setLevel('beginner')} />
       </label>
-      <label htmlFor="intermediate">intermediate
+      <label htmlFor="intermediate">Intermediate
         <input
           type="radio"
           id="intermediate"
