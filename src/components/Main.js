@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 // import user from 'reducers/user';
@@ -30,28 +30,51 @@ const Main = () => {
   const username = useSelector((store) => store.user.username);
   const allItemsArray = useSelector((store) => store.surfPosts.allItems)
   const filteredItems = useSelector((store) => store.surfPosts.filteredItems)
+  const [loading, setLoading] = useState(false);
+  const maxRetries = 3;
+  const retryDelay = 2000;
+  const [retryCount, setRetryCount] = useState(0);
 
   useEffect(() => {
-    const options = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-    fetch(API_URL('surfposts'), options)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          dispatch(surfPosts.actions.setError(null));
-          dispatch(surfPosts.actions.setAllItems(data.response));
-          dispatch(surfPosts.actions.setFilteredItems(data.response));
-        } else {
-          dispatch(surfPosts.actions.setError(data.response));
-          dispatch(surfPosts.actions.setAllItems([]));
-          dispatch(surfPosts.actions.setFilteredItems([]));
+    const fetchData = () => {
+      const options = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
         }
-      });
-  }, [dispatch])
+      }
+
+      setLoading(true)
+      fetch(API_URL('surfposts'), options)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            setLoading(false)
+            dispatch(surfPosts.actions.setError(null));
+            dispatch(surfPosts.actions.setAllItems(data.response));
+            dispatch(surfPosts.actions.setFilteredItems(data.response));
+          } else {
+            dispatch(surfPosts.actions.setError(data.response));
+            dispatch(surfPosts.actions.setAllItems([]));
+            dispatch(surfPosts.actions.setFilteredItems([]));
+          }
+        })
+        .catch((error) => {
+          console.error('Fetch error:', error);
+          if (retryCount < maxRetries) {
+            setTimeout(fetchData, retryDelay);
+            setRetryCount((prevRetryCount) => prevRetryCount + 1);
+          } else {
+            setLoading(false);
+            dispatch(surfPosts.actions.setError('Failed to fetch data.'));
+            dispatch(surfPosts.actions.setAllItems([]));
+            dispatch(surfPosts.actions.setFilteredItems([]));
+          }
+        })
+    };
+
+    fetchData();
+  }, [dispatch, retryCount]);
 
   const handleLikeChange = (id) => {
     const options = {
@@ -87,7 +110,6 @@ const Main = () => {
         }
       });
   };
-
   return (
     <StyledMainWrapper>
       <InnerWrapper>
@@ -117,7 +139,10 @@ const Main = () => {
           : (<p>Hello {username}</p>)}
         <Carousel />
         <Weather />
-        <p>Recommendations that our members have shared...</p>
+        {(loading) ? (
+          <p>Loading recommendations that our members have shared...</p>)
+          : (
+            <p>Recommendations that our members have shared...</p>)}
         <PostsWrapper>
           <MainFilterLevel />
           <MainSortOldNewBtn />

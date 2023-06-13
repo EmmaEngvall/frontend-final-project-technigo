@@ -28,7 +28,7 @@ const Weather = () => {
         console.error('Error fetching weather forecast:', error);
       });
   }
-
+  console.log(forecast)
   return (
     <div>
       <StyledForm onSubmit={onSearchSubmit}>
@@ -48,13 +48,15 @@ const Weather = () => {
         const date = new Date(item.dt * 1000);
         const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
         const windSpeed = item.wind.speed;
+        const { description } = item.weather[0];
         const image = item.weather[0].icon
 
         return (
           <div key={item.dt}>
             <div className="each weekday"><strong>{dayName}</strong></div>
-            <div className="forecast-temp">Temperature&nbsp;{item.main.temp.toFixed(1)}&nbsp;C</div>
-            <div className="wind">Windspeed&nbsp;{windSpeed}&nbsp;m/s</div>
+            <p>{description}</p>
+            <div className="forecast-temp">Temp&nbsp;{item.main.temp.toFixed(1)}&nbsp;C</div>
+            <div className="wind">Wind&nbsp;{windSpeed}&nbsp;m/s</div>
             <img src={`https://openweathermap.org/img/wn/${image}@2x.png`} alt="weather symbol" />
           </div>
         );
