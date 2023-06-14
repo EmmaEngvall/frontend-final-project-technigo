@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Introduction } from 'styled/ArticleDetailsStyled';
 import jsonData from './data.json';
 
 console.log(jsonData);
@@ -20,7 +21,7 @@ const ArticleDetails = () => {
     <div>
       <div key={article.id}>
         <h1>{article.title}</h1>
-        <p>{article.intro}</p>
+        <Introduction>{article.intro}</Introduction>
         <p>{article.body}</p>
         <p>{article.conclusion}</p>
       </div>

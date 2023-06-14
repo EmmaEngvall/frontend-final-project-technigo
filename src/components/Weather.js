@@ -1,5 +1,5 @@
 // import dotenv from 'dotenv';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyledForm, SubmitButton } from 'styled/LoginStyled';
 
 // dotenv.config()
@@ -8,13 +8,11 @@ const Weather = () => {
   const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
   const [forecast, setForecast] = useState([]);
   const [citySearch, setCitySearch] = useState('');
-  const [displayCity, setDisplayCity] = useState('');
+  const [displayCity, setDisplayCity] = useState('Varberg');
 
-  const onSearchSubmit = (event) => {
-    event.preventDefault();
-
+  const fetchWeatherData = (city) => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${citySearch}&appid=${apiKey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`
     )
       .then((response) => response.json())
       .then((fiveDay) => {
@@ -28,6 +26,16 @@ const Weather = () => {
         console.error('Error fetching weather forecast:', error);
       });
   }
+
+  const onSearchSubmit = (event) => {
+    event.preventDefault();
+
+    fetchWeatherData(citySearch);
+  }
+
+  useEffect(() => {
+    fetchWeatherData(displayCity); // Fetch the weather data for the initial city
+  }, []);
 
   return (
     <div>
@@ -49,7 +57,7 @@ const Weather = () => {
         const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
         const windSpeed = item.wind.speed;
         const { description } = item.weather[0];
-        const image = item.weather[0].icon
+        const image = item.weather[0].icon;
 
         return (
           <div key={item.dt}>
@@ -65,4 +73,4 @@ const Weather = () => {
   );
 };
 
-export default Weather
+export default Weather;
