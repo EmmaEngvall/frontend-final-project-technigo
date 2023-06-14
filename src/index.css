@@ -25,6 +25,10 @@ h2 {
   height: 4vh;
 }
 
+textarea {
+  resize: none;
+  font-family: Poppins;
+}
 
 /* Tooltip container */
 .tooltip {
@@ -54,9 +58,6 @@ h2 {
 
 
 /* Carousel component */
-.cards-articles img {
-  width: 100%;
-}
 
 .slider-container .slick-dots {
   position: absolute;
@@ -97,8 +98,6 @@ h2 {
 }
 
 .slider-container {
-  width: 320px;
-  border-radius: 15px;
   margin: 20px;
 }
 

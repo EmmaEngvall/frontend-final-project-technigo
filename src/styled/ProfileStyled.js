@@ -24,11 +24,23 @@ export const PostsWrapper = styled.div`
   flex-direction: column;
   gap: 10px;
 `
+export const InnerWrapperPosts = styled.div`
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  padding-top: 30px;
+  height: 55vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+`
 export const SinglePostWrapper = styled.div`
   padding-left: 14px;
   padding-right: 5px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  overflow-wrap: break-word; 
+  overflow-wrap: break-word;
+  width: 90%;
 `
 
 export const GreetingText = styled.h2`

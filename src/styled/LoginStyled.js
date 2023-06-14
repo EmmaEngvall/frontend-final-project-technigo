@@ -54,7 +54,7 @@ font-size: 2.4rem;
 text-align: center;
 margin-bottom: 10px;
 font-family: Urbanist;
-font-weight: 400;
+font-weight: 500;
 `
 
 export const SignUpText = styled.h2`

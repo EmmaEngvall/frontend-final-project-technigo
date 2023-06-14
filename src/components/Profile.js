@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import user from 'reducers/user';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
-import { InnerWrapper, StyledMainWrapper, PostsWrapper, SinglePostWrapper, GreetingText, LogoutButton, Headline, Location, Message } from 'styled/ProfileStyled';
+import { InnerWrapper, StyledMainWrapper, PostsWrapper, InnerWrapperPosts, SinglePostWrapper, GreetingText, LogoutButton, Headline, Location, Message } from 'styled/ProfileStyled';
 import styled from 'styled-components/macro';
 import { BackgroundContainer } from 'styled/LoginStyled';
 import { CreditTxt, SortBtn } from 'styled/MainStyled';
@@ -130,6 +130,14 @@ const Profile = () => {
           </CreditTxt>
         </BackgroundContainer>
         <GreetingText>Welcome {username} to your profile!</GreetingText>
+        <p>As a member of our community you can create and share a post, like other members&apos;
+          posts and save your favorites.
+          No matter if you are an experienced surfer or a newbie, everybody is welcome and can
+          share their experiences.
+        </p>
+        <p>
+          Enjoy your surf! / Wave Finder Team
+        </p>
         <LogoutButton type="button" onClick={OnLogoutButtonClick}>Log out</LogoutButton>
         <h2>Create a post</h2>
         <PostForm />
@@ -146,36 +154,40 @@ const Profile = () => {
             Sort newest to oldest
         </button> */}
         <PostsWrapper>
-          {useSelector((store) => store.surfPosts.createdByUserItems).map((item) => {
-            return (
-              <SinglePostWrapper key={item.id}>
-                <Headline>{item.headline}</Headline>
-                <Location>{item.location}</Location>
-                <p>{item.level}</p>
-                <EditPost message={item.message} id={item._id} />
-                <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
-                <DltBtn id={item._id} />
-                <p>🤙 x {item.numOfLikes}</p>
-              </SinglePostWrapper>
-            )
-          })}
+          <InnerWrapperPosts>
+            {useSelector((store) => store.surfPosts.createdByUserItems).map((item) => {
+              return (
+                <SinglePostWrapper key={item.id}>
+                  <Headline>{item.headline}</Headline>
+                  <Location>{item.location}</Location>
+                  <p>{item.level}</p>
+                  <EditPost message={item.message} id={item._id} />
+                  <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
+                  <DltBtn id={item._id} />
+                  <p>🤙 x {item.numOfLikes}</p>
+                </SinglePostWrapper>
+              )
+            })}
+          </InnerWrapperPosts>
         </PostsWrapper>
         <h2>My favorite posts</h2>
         <ProfileSearchFav />
         <PostsWrapper>
-          {useSelector((store) => store.surfPosts.filteredSavedFavItems).map((item) => {
-            return (
-              <SinglePostWrapper key={item.id}>
-                <Headline>{item.headline}</Headline>
-                <Location>{item.location}</Location>
-                <p>{item.level}</p>
-                <Message>{item.message}</Message>
-                <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
-                <p>🤙 x {item.numOfLikes}</p>
-                <HandleFav id={item._id} />
-              </SinglePostWrapper>
-            )
-          })}
+          <InnerWrapperPosts>
+            {useSelector((store) => store.surfPosts.filteredSavedFavItems).map((item) => {
+              return (
+                <SinglePostWrapper key={item.id}>
+                  <Headline>{item.headline}</Headline>
+                  <Location>{item.location}</Location>
+                  <p>{item.level}</p>
+                  <Message>{item.message}</Message>
+                  <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
+                  <p>🤙 x {item.numOfLikes}</p>
+                  <HandleFav id={item._id} />
+                </SinglePostWrapper>
+              )
+            })}
+          </InnerWrapperPosts>
         </PostsWrapper>
       </InnerWrapper>
     </StyledMainWrapper>

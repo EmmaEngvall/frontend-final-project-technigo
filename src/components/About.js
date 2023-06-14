@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { BackgroundContainer } from 'styled/LoginStyled';
 import { CreditTxt } from 'styled/MainStyled';
+import { AboutHeader } from 'styled/AboutStyled';
 import ImageBackground from '../images/img_about.jpg';
 
 const BackgroundImg = styled.img`
@@ -13,6 +14,7 @@ const BackgroundImg = styled.img`
 const About = () => {
   return (
     <div>
+      <AboutHeader>About Wave Finder</AboutHeader>
       <BackgroundContainer>
         <BackgroundImg src={ImageBackground} />
         <CreditTxt>Photo by

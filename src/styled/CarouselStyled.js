@@ -1,8 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const ArticleContainer = styled.div`
-width: 400px;
-height: 500px;
+width: 76vw;
 margin-bottom: 3.4rem;
 `
 
@@ -17,7 +16,6 @@ text-align: center;
 letter-spacing: -1px;
 color: #257ca3;
 margin-top: 1rem;
-width: 300px;
 margin-left: 20px;
 `
 
@@ -31,6 +29,13 @@ padding-left: 20px;
 `
 
 export const CardsArticles = styled.div`
-height: 100px;
+width: 76vw;
 position: relative;
+`
+
+export const ImgArticles = styled.img`
+ max-width: 100%;
+ height: auto;
+ padding-left: 4px;
+ padding-right: 4px;
 `

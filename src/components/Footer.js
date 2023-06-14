@@ -1,33 +1,44 @@
 import React from 'react';
-import { StyledFooterWrapper } from 'styled/FooterStyled';
+import { StyledFooterWrapper, StyledTopText, StyledP, GithubOuterWrapper, GithubWrapper } from 'styled/FooterStyled';
+import { CreditTxt } from 'styled/MainStyled';
 import iconGithub from '../icons/github_hover.svg';
 
 const Footer = () => {
   return (
     <StyledFooterWrapper>
-      <div>
-        <p>Technigo Web Development Boot Camp spring 2023</p>
-        <p>Malin Skill</p>
-        <p>
-          <a
-            href="https://github.com/MalinSkill"
-            target="_blank"
-            rel="noopener noreferrer">
-            <img className="sm-icon" src={iconGithub} alt="github icon" />
-          </a>
-        </p>
-      </div>
-      <div>
-        <p>Emma Engvall</p>
-        <p>
-          <a
-            href="https://github.com/EmmaEngvall"
-            target="_blank"
-            rel="noopener noreferrer">
-            <img className="sm-icon" src={iconGithub} alt="github icon" />
-          </a>
-        </p>
-      </div>
+      <StyledTopText>Technigo Web Development Boot Camp spring 2023</StyledTopText>
+      <GithubOuterWrapper>
+        <GithubWrapper>
+          <StyledP>Malin Skill</StyledP>
+          <StyledP>
+            <a
+              href="https://github.com/MalinSkill"
+              target="_blank"
+              rel="noopener noreferrer">
+              <img className="sm-icon" src={iconGithub} alt="github icon" />
+            </a>
+          </StyledP>
+        </GithubWrapper>
+        <GithubWrapper>
+          <StyledP>Emma Engvall</StyledP>
+          <StyledP>
+            <a
+              href="https://github.com/EmmaEngvall"
+              target="_blank"
+              rel="noopener noreferrer">
+              <img className="sm-icon" src={iconGithub} alt="github icon" />
+            </a>
+          </StyledP>
+        </GithubWrapper>
+      </GithubOuterWrapper>
+      <CreditTxt>
+        All icons from
+        <a
+          href="https://icons8.com/"
+          target="_blank"
+          rel="noopener noreferrer"> Icons8
+        </a>
+      </CreditTxt>
     </StyledFooterWrapper>
   )
 }

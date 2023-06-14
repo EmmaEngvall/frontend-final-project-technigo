@@ -10,7 +10,10 @@ export const StyledForm = styled.form`
   font-weight: 500;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 `
-
+export const TextAreaStyled = styled.textarea`
+  resize: none;
+  font-family: Poppins;
+`
 export const SubmitButton = styled.button`
   border: 2px solid #257ca3;
   color: white;
@@ -48,5 +51,3 @@ export const ResetButton = styled.button`
     color: white;
   }
 `
-
-// text area resize:none

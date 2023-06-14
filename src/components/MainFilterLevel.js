@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import surfPosts from 'reducers/surfPosts';
-import { SortLabel, SortLevel, SortLocation } from 'styled/MainStyled';
+import { FilterOptionWrapper, SortLabel, SortLevel, SortLocation } from 'styled/MainStyled';
 
 const MainFilterLevel = () => {
   const [selectedLevel, setSelectedLevel] = useState('all');
@@ -67,36 +67,32 @@ const MainFilterLevel = () => {
   }
 
   return (
-    <div>
-      <div>
-        <SortLabel htmlFor="levelSelect">Sort on Surf level
-          <SortLevel onChange={handleLevelChanges} value={selectedLevel}>
-            <option value="all" disabled>Sort on level</option>
-            <option value="all">All levels</option>
-            {sortedLevels.map((level) => {
+    <FilterOptionWrapper>
+      <SortLabel htmlFor="levelSelect">Sort on Surf level
+        <SortLevel onChange={handleLevelChanges} value={selectedLevel}>
+          <option value="all" disabled>Sort on level</option>
+          <option value="all">All levels</option>
+          {sortedLevels.map((level) => {
+            return (
+              <option key={level} value={level}>{level}</option>
+            )
+          })}
+        </SortLevel>
+      </SortLabel>
+      <SortLabel htmlFor="locationSelect">Sort on Location
+        <SortLocation onChange={handleLocationChanges} value={selectedLocation}>
+          <option value="all" disabled>Filter by location</option>
+          <option value="all">Clear filter</option>
+          {uniqueLocations
+            .sort((a, b) => a.localeCompare(b))
+            .map((location) => {
               return (
-                <option key={level} value={level}>{level}</option>
+                <option key={location} value={location}>{location}</option>
               )
             })}
-          </SortLevel>
-        </SortLabel>
-      </div>
-      <div>
-        <SortLabel htmlFor="locationSelect">Sort on Location
-          <SortLocation onChange={handleLocationChanges} value={selectedLocation}>
-            <option value="all" disabled>Filter by location</option>
-            <option value="all">Clear filter</option>
-            {uniqueLocations
-              .sort((a, b) => a.localeCompare(b))
-              .map((location) => {
-                return (
-                  <option key={location} value={location}>{location}</option>
-                )
-              })}
-          </SortLocation>
-        </SortLabel>
-      </div>
-    </div>
+        </SortLocation>
+      </SortLabel>
+    </FilterOptionWrapper>
   )
 }
 

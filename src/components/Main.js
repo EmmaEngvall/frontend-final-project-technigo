@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 // import user from 'reducers/user';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
-import { InnerWrapper, StyledMainWrapper, PostsWrapper, SinglePostWrapper, GreetingText, LogoutButton, Headline, Location, Message, CreditTxt, LikeBtn } from 'styled/MainStyled';
+import { InnerWrapper, StyledMainWrapper, PostsWrapper, InnerWrapperPosts, BtnWrapper, SinglePostWrapper, GreetingText, StyledH3, LogoutButton, Headline, Location, Message, CreditTxt, LikeBtn } from 'styled/MainStyled';
 import styled from 'styled-components/macro';
 import { BackgroundContainer } from 'styled/LoginStyled';
 import HandleFav from './HandleFav';
@@ -113,6 +113,7 @@ const Main = () => {
   return (
     <StyledMainWrapper>
       <InnerWrapper>
+        <GreetingText>Welcome to Wave Finder!</GreetingText>
         <BackgroundContainer>
           <BackgroundImg src={ImageBackground} />
           <CreditTxt>Photo by
@@ -128,15 +129,14 @@ const Main = () => {
             </a>
           </CreditTxt>
         </BackgroundContainer>
-        <GreetingText>Welcome to Wave Finder!</GreetingText>
         {(!accessToken) ? (
           <>
-            <p>Register and login to share your surf experiences</p>
+            <StyledH3>Register and login to share your surf experiences</StyledH3>
             <NavLink to="/login">
               <LogoutButton type="button">Register/Log In</LogoutButton>
             </NavLink>
           </>)
-          : (<p>Hello {username}</p>)}
+          : (<StyledH3>Hello {username}</StyledH3>)}
         <Carousel />
         <Weather />
         {(loading) ? (
@@ -145,30 +145,34 @@ const Main = () => {
             <h2>Recommendations from our members...</h2>)}
         <PostsWrapper>
           <MainFilterLevel />
-          <MainSortOldNewBtn />
-          <MainSortOnLikes />
-          {filteredItems.map((item) => {
-            return (
-              <SinglePostWrapper key={item.id}>
-                <Headline>{item.headline}</Headline>
-                <Location>{item.location}</Location>
-                <p>{item.level}</p>
-                <Message>{item.message}</Message>
-                <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
-                <div className="tooltip">
-                  <LikeBtn
-                    key="likeBtn"
-                    type="submit"
-                    onClick={() => handleLikeChange(item._id)}
-                    disabled={(!accessToken)}>
-                    <p>🤙 x {item.numOfLikes}</p>
-                    {(!accessToken) && <span className="tooltiptext">Become a member to like a post</span>}
-                  </LikeBtn>
-                </div>
-                <HandleFav id={item._id} />
-              </SinglePostWrapper>
-            )
-          })}
+          <BtnWrapper>
+            <MainSortOldNewBtn />
+            <MainSortOnLikes />
+          </BtnWrapper>
+          <InnerWrapperPosts>
+            {filteredItems.map((item) => {
+              return (
+                <SinglePostWrapper key={item.id}>
+                  <Headline>{item.headline}</Headline>
+                  <Location>{item.location}</Location>
+                  <p>{item.level}</p>
+                  <Message>{item.message}</Message>
+                  <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
+                  <div className="tooltip">
+                    <LikeBtn
+                      key="likeBtn"
+                      type="submit"
+                      onClick={() => handleLikeChange(item._id)}
+                      disabled={(!accessToken)}>
+                      <p>🤙 x {item.numOfLikes}</p>
+                      {(!accessToken) && <span className="tooltiptext">Become a member to like a post</span>}
+                    </LikeBtn>
+                  </div>
+                  <HandleFav id={item._id} />
+                </SinglePostWrapper>
+              )
+            })}
+          </InnerWrapperPosts>
         </PostsWrapper>
         <Praise />
       </InnerWrapper>

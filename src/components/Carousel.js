@@ -2,7 +2,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
-import { ArticleContainer, TitleArticle, StyledHeadline, CardsArticles } from 'styled/CarouselStyled';
+import { ArticleContainer, TitleArticle, StyledHeadline, CardsArticles, ImgArticles } from 'styled/CarouselStyled';
 import { CreditTxt } from 'styled/MainStyled';
 import imgVarberg from '../images/article_Varberg.jpg';
 import imgLofoten from '../images/article_Lofoten.jpg';
@@ -20,15 +20,15 @@ const Carousel = () => {
 
   return (
     <ArticleContainer>
-      <StyledHeadline>Articles to inspire</StyledHeadline>
+      <StyledHeadline>Articles about destinations</StyledHeadline>
       <div className="slider-container">
         <Slider {...settings}>
           <CardsArticles>
             <Link
               key="01"
               to="/singleArticle/01">
-              <TitleArticle>Surfing in Varberg: Sweden&apos;s Coastal Gem</TitleArticle>
-              <img className="article_1" src={imgVarberg} alt="Beach in Varberg" />
+              <TitleArticle>Sweden&apos;s Coastal Gem: Varberg</TitleArticle>
+              <ImgArticles src={imgVarberg} alt="Beach in Varberg" />
             </Link>
             <CreditTxt>Photo by
               <a
@@ -49,7 +49,7 @@ const Carousel = () => {
               key="02"
               to="/singleArticle/02">
               <TitleArticle>Cold but beautiful, surfing in Lofoten</TitleArticle>
-              <img className="article_2" src={imgLofoten} alt="Surfers in dry suits" />
+              <ImgArticles src={imgLofoten} alt="Surfers in dry suits" />
             </Link>
             <CreditTxt>Photo by
               <a
@@ -70,7 +70,7 @@ const Carousel = () => {
               key="03"
               to="/singleArticle/03">
               <TitleArticle>Beautiful Cornwall, not just pasture</TitleArticle>
-              <img className="article_3" src={imgCornwall} alt="Cliffs and ocean in Cornwall" />
+              <ImgArticles src={imgCornwall} alt="Cliffs and ocean in Cornwall" />
             </Link>
             <CreditTxt>Photo by
               <a
@@ -91,7 +91,7 @@ const Carousel = () => {
               key="04"
               to="/singleArticle/04">
               <TitleArticle>Burleigh Heads never disappoints</TitleArticle>
-              <img className="article_4" src={imgBH} alt="Surfers waiting for waves at Burleigh Heads" />
+              <ImgArticles src={imgBH} alt="Surfers waiting for waves at Burleigh Heads" />
             </Link>
             <CreditTxt>Photo by
               <a

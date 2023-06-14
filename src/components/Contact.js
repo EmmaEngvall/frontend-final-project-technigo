@@ -1,4 +1,5 @@
 import React from 'react';
+import { ContactHeader, ProfileImg } from 'styled/ContactStyled';
 import iconGithub from '../icons/github_hover.svg';
 import iconLinkedin from '../icons/linkedin_hover.svg';
 import profileMalin from '../images/profile_malin.jpg';
@@ -7,10 +8,10 @@ import profileEmma from '../images/profile_emma.jpg';
 const Contact = () => {
   return (
     <div>
-      <h1>This is the Contact page!</h1>
+      <ContactHeader>Get in touch with us</ContactHeader>
       <div>
         <h2>This is Malin</h2>
-        <img className="profile_malin" src={profileMalin} alt="Malin profile" />
+        <ProfileImg src={profileMalin} alt="Malin profile" />
         <p>Malin is a talented junior frontend developer, eager to learn new skills and deepen
         her knowledge in this field.
         With her background from logistic and trade, she brings valuable experience with
@@ -42,7 +43,7 @@ const Contact = () => {
       </div>
       <div>
         <h2>This is Emma</h2>
-        <img className="profile_emma" src={profileEmma} alt="Emma profile" />
+        <ProfileImg src={profileEmma} alt="Emma profile" />
         <p>With a love for travel. Background as a Business Analyst for a Swedish retailer.</p>
         <div>
           <a

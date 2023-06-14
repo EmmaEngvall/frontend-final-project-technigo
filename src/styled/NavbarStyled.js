@@ -45,6 +45,7 @@ export const LiElements = styled.li`
 `
 export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
+  font-family: Urbanist;
   
   &.active {
     text-decoration-line: underline;

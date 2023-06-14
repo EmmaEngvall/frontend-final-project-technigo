@@ -98,7 +98,7 @@ const PostForm = () => {
           value={message}
           placeholder="How was the surf?"
           rows="10"
-          cols="40"
+          cols="34"
           maxLength={500}
           onChange={(e) => setMessage(e.target.value)} />
       </label>

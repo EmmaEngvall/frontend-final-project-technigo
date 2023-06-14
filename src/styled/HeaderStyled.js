@@ -10,7 +10,7 @@ height: fit-content;
 background: none;
 color: inherit;
 border: none;
-padding: 0;
+padding: 3px;
 font: inherit;
 cursor: pointer;
 outline: inherit;

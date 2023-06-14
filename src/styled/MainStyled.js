@@ -22,13 +22,28 @@ export const InnerWrapper = styled.section`
 export const PostsWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
 `
+export const InnerWrapperPosts = styled.div`
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  padding-top: 10px;
+  height: 80vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+`
+
 export const SinglePostWrapper = styled.div`
   padding-left: 14px;
   padding-right: 5px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   overflow-wrap: break-word; 
+  width: 90%;
 `
 
 export const GreetingText = styled.h2`
@@ -39,16 +54,24 @@ font-family: Caveat;
 font-weight: 500;
 margin-bottom: 8px;
 `
+export const StyledH3 = styled.h3`
+  font-size: 1rem;
+  color: gray;
+  text-align: center;
+  font-family: Poppins;
+  font-weight: 300;
+  margin: 0;
+`
 
 export const LogoutButton = styled.button`
   border: 2px solid #257ca3;
   color: white;
   background-color: #257ca3;
-  width: 80px;
   border-radius: 20px;
   font-family: Urbanist;
   cursor: pointer;
   margin-bottom: 16px;
+  padding: 3px;
 
   &:hover {
     border: 2px solid black;
@@ -78,7 +101,10 @@ export const Location = styled.p`
 export const Message = styled.p`
   font-weight: 300;
 `
-
+export const BtnWrapper = styled.div`
+  display: flex;
+  gap: 5px;
+`
 export const SortBtn = styled.button`
   border: 2px solid #257ca3;
   color: #257ca3;
@@ -88,13 +114,18 @@ export const SortBtn = styled.button`
   font-family: Urbanist;
   font-weight: 500;
   cursor: pointer;
-  margin-bottom: 16px;
 
   &:hover {
     border: 2px solid #257ca3;
     background-color: #257ca3;
     color: white;
   }
+`
+export const FilterOptionWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
 `
 
 export const SortLevel = styled.select`
@@ -103,7 +134,6 @@ export const SortLevel = styled.select`
   font-family: Urbanist;
   font-weight: 500;
   cursor: pointer;
-  margin-left: 1.4rem;
 `
 
 export const SortLocation = styled.select`
@@ -112,12 +142,14 @@ export const SortLocation = styled.select`
   font-family: Urbanist;
   font-weight: 500;
   cursor: pointer;
-  margin-left: 1.4rem;
 `
 
 export const SortLabel = styled.label`
   font-family: Urbanist;
   font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 export const FavBtn = styled.button`
