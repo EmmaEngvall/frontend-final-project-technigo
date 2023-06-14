@@ -44,12 +44,17 @@ export const SinglePostWrapper = styled.div`
 `
 
 export const GreetingText = styled.h2`
-font-size: 2.4rem;
-color: #257ca3;
-text-align: center;
-font-family: Caveat;
-font-weight: 500;
-margin-bottom: 8px;
+  font-size: 2.4rem;
+  color: #257ca3;
+  text-align: center;
+  font-family: Caveat;
+  font-weight: 500;
+  margin-bottom: 8px;
+`
+
+export const IntroText = styled.p`
+  font-family: Poppins;
+  text-align: center;
 `
 
 export const LogoutButton = styled.button`

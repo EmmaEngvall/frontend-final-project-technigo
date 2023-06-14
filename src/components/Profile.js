@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import user from 'reducers/user';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
-import { InnerWrapper, StyledMainWrapper, PostsWrapper, InnerWrapperPosts, SinglePostWrapper, GreetingText, LogoutButton, Headline, Location, Message } from 'styled/ProfileStyled';
+import { InnerWrapper, StyledMainWrapper, PostsWrapper, InnerWrapperPosts, SinglePostWrapper, GreetingText, LogoutButton, Headline, Location, Message, IntroText } from 'styled/ProfileStyled';
 import styled from 'styled-components/macro';
 import { BackgroundContainer } from 'styled/LoginStyled';
 import { CreditTxt, SortBtn } from 'styled/MainStyled';
@@ -114,6 +114,7 @@ const Profile = () => {
   return (
     <StyledMainWrapper>
       <InnerWrapper>
+        <GreetingText>Welcome {username}!</GreetingText>
         <BackgroundContainer>
           <BackgroundImg src={ImageBackground} />
           <CreditTxt>Photo by
@@ -129,15 +130,16 @@ const Profile = () => {
             </a>
           </CreditTxt>
         </BackgroundContainer>
-        <GreetingText>Welcome {username} to your profile!</GreetingText>
-        <p>As a member of our community you can create and share a post, like other members&apos;
-          posts and save your favorites.
-          No matter if you are an experienced surfer or a newbie, everybody is welcome and can
-          share their experiences.
-        </p>
-        <p>
-          Enjoy your surf! / Wave Finder Team
-        </p>
+        <IntroText>As a member of our community you can
+          <strong> create and share a post, like other members&apos; posts </strong> and
+          <strong> save your favorites</strong>.
+          No matter if you are an experienced surfer or a newbie,
+          <strong> everyone is welcome </strong>
+          to contribute to <strong> our community </strong>.
+        </IntroText>
+        <IntroText>
+          Enjoy your surf! / <i>Wave Finder Team</i>
+        </IntroText>
         <LogoutButton type="button" onClick={OnLogoutButtonClick}>Log out</LogoutButton>
         <h2>Create a post</h2>
         <PostForm />

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
-import { ResetButton, StyledForm, SubmitButton } from 'styled/PostFormStyled';
+import { MessageLabel, ResetButton, StyledForm, SubmitButton } from 'styled/PostFormStyled';
 
 const PostForm = () => {
   const dispatch = useDispatch();
@@ -91,17 +91,17 @@ const PostForm = () => {
           checked={level === 'advanced'}
           onChange={() => setLevel('advanced')} />
       </label>
-      <label htmlFor="message">Message
+      <MessageLabel htmlFor="message">Message
         <textarea
           className="message"
           id="message"
           value={message}
           placeholder="How was the surf?"
           rows="10"
-          cols="34"
+          cols="28"
           maxLength={500}
           onChange={(e) => setMessage(e.target.value)} />
-      </label>
+      </MessageLabel>
       <SubmitButton type="submit">Submit</SubmitButton>
       <ResetButton
         type="button"

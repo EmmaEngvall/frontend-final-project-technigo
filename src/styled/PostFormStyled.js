@@ -3,17 +3,17 @@ import styled from 'styled-components/macro';
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column; 
-  width: 250px;
   gap: 10px;
   padding: 10px;
   margin-bottom: 15px;
   font-weight: 500;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 `
-export const TextAreaStyled = styled.textarea`
-  resize: none;
-  font-family: Poppins;
+export const MessageLabel = styled.label`
+  display: flex;
+  flex-direction: column;s
 `
+
 export const SubmitButton = styled.button`
   border: 2px solid #257ca3;
   color: white;
