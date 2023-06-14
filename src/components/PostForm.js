@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
-import { MessageLabel, ResetButton, StyledForm, SubmitButton } from 'styled/PostFormStyled';
+import { FormLabel, PlaceholderTxt, ResetButton, StyledForm, SubmitButton, ButtonWrapper } from 'styled/PostFormStyled';
 
 const PostForm = () => {
   const dispatch = useDispatch();
@@ -54,22 +54,22 @@ const PostForm = () => {
 
   return (
     <StyledForm onSubmit={onPostSubmit}>
-      <label htmlFor="headline">Title
-        <input
+      <FormLabel htmlFor="headline">Title
+        <PlaceholderTxt
           type="text"
           id="headline"
           value={headline}
           placeholder="Name your post"
           onChange={(e) => setHeadline(e.target.value)} />
-      </label>
-      <label htmlFor="location">Location
-        <input
+      </FormLabel>
+      <FormLabel htmlFor="location">Location
+        <PlaceholderTxt
           type="text"
           id="location"
           value={location}
-          placeholder="Where in the world did you surf?"
+          placeholder="Where did you surf?"
           onChange={(e) => setLocation(e.target.value)} />
-      </label>
+      </FormLabel>
       <label htmlFor="beginner">Beginner
         <input
           type="radio"
@@ -91,7 +91,7 @@ const PostForm = () => {
           checked={level === 'advanced'}
           onChange={() => setLevel('advanced')} />
       </label>
-      <MessageLabel htmlFor="message">Message
+      <FormLabel htmlFor="message">Message
         <textarea
           className="message"
           id="message"
@@ -101,13 +101,15 @@ const PostForm = () => {
           cols="28"
           maxLength={500}
           onChange={(e) => setMessage(e.target.value)} />
-      </MessageLabel>
-      <SubmitButton type="submit">Submit</SubmitButton>
-      <ResetButton
-        type="button"
-        onClick={handleReset}>
-        Reset
-      </ResetButton>
+      </FormLabel>
+      <ButtonWrapper>
+        <ResetButton
+          type="button"
+          onClick={handleReset}>
+          Clear Input
+        </ResetButton>
+        <SubmitButton type="submit">Submit</SubmitButton>
+      </ButtonWrapper>
     </StyledForm>
   )
 }

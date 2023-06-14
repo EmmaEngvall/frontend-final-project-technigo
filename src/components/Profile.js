@@ -2,10 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import user from 'reducers/user';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
-import { InnerWrapper, StyledMainWrapper, PostsWrapper, InnerWrapperPosts, SinglePostWrapper, GreetingText, LogoutButton, Headline, Location, Message, IntroText } from 'styled/ProfileStyled';
+import { InnerWrapper, StyledMainWrapper, ProfileH2, PostsWrapper, InnerWrapperPosts, SinglePostWrapper, PostTopWrapper, GreetingText, Headline, Location, Message, IntroText, LikeIcon, LikeWrapper } from 'styled/ProfileStyled';
 import styled from 'styled-components/macro';
 import { BackgroundContainer } from 'styled/LoginStyled';
 import { CreditTxt, SortBtn } from 'styled/MainStyled';
@@ -15,6 +14,7 @@ import DltBtn from './DltBtn';
 import EditPost from './EditPost';
 import ImageBackground from '../images/img_profile.jpg';
 import ProfileSearchFav from './ProfileSearchFav';
+import likeIcon from '../icons/hand_dkblue.png';
 
 const BackgroundImg = styled.img`
   object-fit: cover;
@@ -56,14 +56,6 @@ const Profile = () => {
         }
       });
   }, [accessToken, dispatch])
-
-  const OnLogoutButtonClick = () => {
-    dispatch(user.actions.setAccessToken(null));
-    dispatch(user.actions.setUsername(null));
-    dispatch(user.actions.setUserId(null));
-    dispatch(user.actions.setError(null));
-    dispatch(surfPosts.actions.setCreatedByUserItems([]));
-  };
 
   useEffect(() => {
     const options = {
@@ -140,39 +132,38 @@ const Profile = () => {
         <IntroText>
           Enjoy your surf! / <i>Wave Finder Team</i>
         </IntroText>
-        <LogoutButton type="button" onClick={OnLogoutButtonClick}>Log out</LogoutButton>
-        <h2>Create a post</h2>
+        <ProfileH2>Create a post</ProfileH2>
         <PostForm />
-        <h2>My posts</h2>
+        <ProfileH2>My posts</ProfileH2>
         <SortBtn
           key="sortBtn"
           type="button"
           onClick={() => handleSortMyPosts()}>
           {(currentSortOrder === 'desc') ? <p>Sort Old to New</p> : <p>Sort New to Old</p>}
         </SortBtn>
-        {/* <button
-          key="unSortBtn"
-          type="button">
-            Sort newest to oldest
-        </button> */}
         <PostsWrapper>
           <InnerWrapperPosts>
             {useSelector((store) => store.surfPosts.createdByUserItems).map((item) => {
               return (
                 <SinglePostWrapper key={item.id}>
-                  <Headline>{item.headline}</Headline>
+                  <PostTopWrapper>
+                    <Headline>{item.headline}</Headline>
+                    <DltBtn id={item._id} />
+                  </PostTopWrapper>
                   <Location>{item.location}</Location>
                   <p>{item.level}</p>
                   <EditPost message={item.message} id={item._id} />
                   <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
-                  <DltBtn id={item._id} />
-                  <p>🤙 x {item.numOfLikes}</p>
+                  <LikeWrapper>
+                    <LikeIcon src={likeIcon} alt="like icon" />
+                    <p> x {item.numOfLikes}</p>
+                  </LikeWrapper>
                 </SinglePostWrapper>
               )
             })}
           </InnerWrapperPosts>
         </PostsWrapper>
-        <h2>My favorite posts</h2>
+        <ProfileH2>My favorite posts</ProfileH2>
         <ProfileSearchFav />
         <PostsWrapper>
           <InnerWrapperPosts>
@@ -184,7 +175,10 @@ const Profile = () => {
                   <p>{item.level}</p>
                   <Message>{item.message}</Message>
                   <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
-                  <p>🤙 x {item.numOfLikes}</p>
+                  <LikeWrapper>
+                    <LikeIcon src={likeIcon} alt="like icon" />
+                    <p> x {item.numOfLikes}</p>
+                  </LikeWrapper>
                   <HandleFav id={item._id} />
                 </SinglePostWrapper>
               )

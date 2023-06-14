@@ -6,7 +6,7 @@ margin-bottom: 3.4rem;
 `
 
 export const StyledHeadline = styled.h2`
-font-family: Caveat;
+font-family: Urbanist;
 font-weight: 500;
 font-size: 30px;
 line-height: 40px;
@@ -19,17 +19,18 @@ margin-top: 1rem;
 margin-left: 20px;
 `
 
-export const TitleArticle = styled.h3`
-font-family: Caveat;
+export const TitleArticle = styled.p`
+font-family: Urbanist;
 margin-top: 10px;
-font-size: 24px;
+font-size: 20px;
 font-weight: 600;
 color: #03092E;
 padding-left: 20px;
 `
 
 export const CardsArticles = styled.div`
-width: 76vw;
+width: 100%;
+height: 50vh;
 position: relative;
 `
 

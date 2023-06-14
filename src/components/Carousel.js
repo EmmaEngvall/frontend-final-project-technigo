@@ -20,7 +20,7 @@ const Carousel = () => {
 
   return (
     <ArticleContainer>
-      <StyledHeadline>Articles about destinations</StyledHeadline>
+      <StyledHeadline>Articles</StyledHeadline>
       <div className="slider-container">
         <Slider {...settings}>
           <CardsArticles>

@@ -28,6 +28,7 @@ h2 {
 textarea {
   resize: none;
   font-family: Poppins;
+  font-style: italic;
 }
 
 /* Tooltip container */
@@ -72,21 +73,22 @@ textarea {
 
 /* gap between the dots */
 .slider-container .slick-dots li {
-  margin-right: 36px; 
+  padding-right: 10px;
 }
 
 .slider-container .slick-dots li button:before {
   content: "";
   position: absolute;
-  width: 20px; 
-  height: 20px; 
+  width: 16px; 
+  height: 16px; 
   background-color: #e4dec9; 
   opacity: 0.8; 
   border-radius: 40px;
 }
 
 .slider-container .slick-dots li.slick-active button:before {
-  background-color: #396d7c; 
+  background-color: #396d7c;
+  object-fit: cover;
 }
 
 .slider-container .slick-prev:before {
@@ -108,4 +110,11 @@ a {
 a:hover {
   text-decoration: underline;
   color: #03092E;
+}
+
+.slick-slide img {
+  object-fit: cover;
+  display: block;
+  height: 65%;
+  width: 100%;
 }

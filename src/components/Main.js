@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 // import user from 'reducers/user';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
-import { InnerWrapper, StyledMainWrapper, PostsWrapper, InnerWrapperPosts, BtnWrapper, SinglePostWrapper, GreetingText, StyledH3, LogoutButton, Headline, Location, Message, CreditTxt, LikeBtn } from 'styled/MainStyled';
+import { InnerWrapper, StyledMainWrapper, PostsWrapper, InnerWrapperPosts, BtnWrapper, SinglePostWrapper, GreetingText, StyledH3, LogoutButton, Headline, Location, Message, CreditTxt, LikeBtn, LikeIcon, LikeWrapper } from 'styled/MainStyled';
 import styled from 'styled-components/macro';
 import { BackgroundContainer } from 'styled/LoginStyled';
 import HandleFav from './HandleFav';
@@ -17,6 +17,7 @@ import MainSortOldNewBtn from './MainSortOldNewBtn';
 import MainSortOnLikes from './MainSortLikeBtn';
 import Carousel from './Carousel';
 import MainFilterLevel from './MainFilterLevel';
+import likeIcon from '../icons/hand_dkblue.png';
 
 const BackgroundImg = styled.img`
   object-fit: cover;
@@ -164,7 +165,10 @@ const Main = () => {
                       type="submit"
                       onClick={() => handleLikeChange(item._id)}
                       disabled={(!accessToken)}>
-                      <p>🤙 x {item.numOfLikes}</p>
+                      <LikeWrapper>
+                        <LikeIcon src={likeIcon} alt="like icon" />
+                        <p> x {item.numOfLikes}</p>
+                      </LikeWrapper>
                       {(!accessToken) && <span className="tooltiptext">Become a member to like a post</span>}
                     </LikeBtn>
                   </div>

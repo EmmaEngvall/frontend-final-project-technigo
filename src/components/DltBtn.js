@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import surfPosts from 'reducers/surfPosts';
-import { CancelDltBtn, ConfirmDltBtn, DeleteBtn } from 'styled/ProfileStyled';
+import { CancelDltBtn, ConfirmDltBtn, DeleteBtn, DeleteIcon, ConfirmDltWrapper, ConfirmDltWrapperP } from 'styled/ProfileStyled';
 import { API_URL } from 'utils/urls';
+import deleteIcon from '../icons/delete_icon.png'
 
 const DltBtn = ({ id }) => {
   const dispatch = useDispatch();
@@ -36,16 +37,19 @@ const DltBtn = ({ id }) => {
   return (
     <div>
       {(cfmDlt) ? (
-        <CancelDltBtn type="button" onClick={() => setCfmDlt(false)}>NO</CancelDltBtn>
+        <ConfirmDltWrapper>
+          <ConfirmDltWrapperP>Delete?</ConfirmDltWrapperP>
+          <CancelDltBtn type="button" onClick={() => setCfmDlt(false)}>NO</CancelDltBtn>
+          <ConfirmDltBtn
+            key="dltBtn"
+            type="submit"
+            onClick={handleDlt}>
+            YES
+          </ConfirmDltBtn>
+        </ConfirmDltWrapper>
       ) : (
-        <DeleteBtn type="button" onClick={() => setCfmDlt(true)}><p>🗑️Delete post</p></DeleteBtn>
-      )} {(cfmDlt) && (
-        <ConfirmDltBtn
-          key="dltBtn"
-          type="submit"
-          onClick={handleDlt}>
-          <p>Yes</p>
-        </ConfirmDltBtn>)}
+        <DeleteBtn type="button" onClick={() => setCfmDlt(true)}><DeleteIcon src={deleteIcon} alt="delete icon" /></DeleteBtn>
+      )}
     </div>
   )
 };

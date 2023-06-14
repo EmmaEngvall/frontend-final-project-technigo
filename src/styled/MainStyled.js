@@ -185,3 +185,15 @@ export const LikeBtn = styled.button`
     box-shadow: 0 5px #257ca3;
   }
   `
+
+export const LikeIcon = styled.img`
+  height: 3.8vh;
+  width: auto;
+  padding-right: 5px;
+`
+
+export const LikeWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+`

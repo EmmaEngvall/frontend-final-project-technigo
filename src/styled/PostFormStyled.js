@@ -9,9 +9,18 @@ export const StyledForm = styled.form`
   font-weight: 500;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 `
-export const MessageLabel = styled.label`
+export const FormLabel = styled.label`
   display: flex;
-  flex-direction: column;s
+  flex-direction: column;
+`
+
+export const PlaceholderTxt = styled.input`
+  font-family: Poppins;
+  font-style: Italic;
+`
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
 
 export const SubmitButton = styled.button`

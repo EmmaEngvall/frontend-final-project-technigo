@@ -59,9 +59,12 @@ const Navbar = () => {
             <LiElements>
               <StyledNavLink to="/"><ElementP>Home</ElementP></StyledNavLink>
             </LiElements>
-            <LiElements>
-              <StyledNavLink to="/profile"><ElementP>My profile</ElementP></StyledNavLink>
-            </LiElements>
+            {(accessToken)
+            && (
+              <LiElements>
+                <StyledNavLink to="/profile"><ElementP>My profile</ElementP></StyledNavLink>
+              </LiElements>
+            )}
             <LiElements>
               <StyledNavLink to="/about"><ElementP>About</ElementP></StyledNavLink>
             </LiElements>

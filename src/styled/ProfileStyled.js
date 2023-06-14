@@ -19,10 +19,14 @@ export const InnerWrapper = styled.section`
     width: 50vw;
   }
   `
+export const ProfileH2 = styled.h2`
+  margin-bottom: 0px;
+`
 export const PostsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 25px;
 `
 export const InnerWrapperPosts = styled.div`
   display:flex;
@@ -56,6 +60,11 @@ export const IntroText = styled.p`
   font-family: Poppins;
   text-align: center;
 `
+export const PostTopWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
 
 export const LogoutButton = styled.button`
   border: 2px solid #257ca3;
@@ -78,7 +87,6 @@ export const Headline = styled.p`
   font-family: Caveat;
   font-size: 1.6rem;
   font-weight: 600;
-  margin-bottom: 4px;
   color: #257ca3;
 `
 
@@ -125,18 +133,26 @@ export const SaveBtn = styled.button`
   cursor: pointer;
   margin-bottom: 16px;
 `
+// delete button and popup to confirm
 
 export const DeleteBtn = styled.button`
-  border: 2px solid #257ca3;
-  color: white;
-  background-color: #257ca3;
-  width: 100px;
-  border-radius: 5px;
-  font-family: Urbanist;
-  font-weight: 500;
+  height: fit-content;
   cursor: pointer;
-  margin-bottom: 16px;
-
+  padding: 2px;
+  background: none;
+  border: none;
+`
+export const DeleteIcon = styled.img`
+  height: 3vh;
+  width: auto;
+`
+export const ConfirmDltWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`
+export const ConfirmDltWrapperP = styled.p`
+  margin: 0;
 `
 
 export const ConfirmDltBtn = styled.button`
@@ -159,4 +175,16 @@ export const CancelDltBtn = styled.button`
   font-family: Urbanist;
   font-weight: 500;
   cursor: pointer;
+`
+
+export const LikeIcon = styled.img`
+  height: 3.8vh;
+  width: auto;
+  padding-right: 5px;
+`
+
+export const LikeWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 `
