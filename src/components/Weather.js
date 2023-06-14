@@ -1,5 +1,5 @@
 // import dotenv from 'dotenv';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { StyledForm, SubmitButton } from 'styled/LoginStyled';
 
 // dotenv.config()
@@ -7,8 +7,7 @@ import { StyledForm, SubmitButton } from 'styled/LoginStyled';
 const Weather = () => {
   const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
   const [forecast, setForecast] = useState([]);
-  const [citySearch, setCitySearch] = useState('');
-  const [displayCity, setDisplayCity] = useState('Varberg');
+  const [displayCity, setDisplayCity] = useState('');
 
   const fetchWeatherData = (city) => {
     fetch(
@@ -20,7 +19,6 @@ const Weather = () => {
         const filteredForecast = fiveDay.list.filter((item) => item.dt_txt.includes('12:00:00'));
         setForecast(filteredForecast);
         setDisplayCity(searchedCity);
-        setCitySearch('');
       })
       .catch((error) => {
         console.error('Error fetching weather forecast:', error);
@@ -30,12 +28,9 @@ const Weather = () => {
   const onSearchSubmit = (event) => {
     event.preventDefault();
 
+    const citySearch = event.target.elements.citySearch.value;
     fetchWeatherData(citySearch);
   }
-
-  useEffect(() => {
-    fetchWeatherData(displayCity); // Fetch the weather data for the initial city
-  }, []);
 
   return (
     <div>
@@ -45,9 +40,7 @@ const Weather = () => {
           <input
             type="text"
             id="citySearch"
-            value={citySearch}
-            placeholder="Enter a city"
-            onChange={(e) => setCitySearch(e.target.value)} />
+            placeholder="Enter a city" />
         </label>
         <SubmitButton type="submit">Search</SubmitButton>
       </StyledForm>
