@@ -45,6 +45,7 @@ export const LabelForm = styled.label`
 display: flex;
 justify-content: space-between;
 font-family: Urbanist;
+width: 100%;
 
 &.login {
   display: none;
