@@ -3,7 +3,7 @@ import { StyledMainWrapper, InnerWrapper, OuterWrapperDetails, DetailsWrapper, C
 import iconGithub from '../icons/github_hover.svg';
 import iconLinkedin from '../icons/linkedin_hover.svg';
 import profileMalin from '../images/profile_malin.jpg';
-import profileEmma from '../images/profile_emma2.jpg';
+import profileEmma from '../images/profile_emma.jpg';
 
 const Contact = () => {
   return (

@@ -188,6 +188,7 @@ export const LikeWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  width: 100px;
 `
 
 export const LikeFavoriteWrapper = styled.div`
