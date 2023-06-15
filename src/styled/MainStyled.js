@@ -25,6 +25,8 @@ export const PostsWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 10px;
+  min-width: 100%;
+  max-width: 100%;
 
   @media (min-width: 1024px){
     width: 80%;
