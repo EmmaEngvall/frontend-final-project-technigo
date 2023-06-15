@@ -46,6 +46,7 @@ export const LiElements = styled.li`
 export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   font-family: Urbanist;
+  font-weight: 500;
   
   &.active {
     text-decoration-line: underline;
@@ -95,6 +96,8 @@ export const LogoutButton = styled.button`
   font: inherit;
   cursor: pointer;
   outline: inherit;
+  font-family: Urbanist;
+  font-weight: 500;
 `
 
 export const NavWrapper = styled.div`

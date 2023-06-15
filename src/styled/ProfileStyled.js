@@ -101,9 +101,8 @@ export const Message = styled.p`
 `
 
 export const EditBtn = styled.button`
-  border: 2px solid #257ca3;
-  color: white;
-  background-color: #257ca3;
+  border: 2px solid #baf2ef;
+  background-color: #baf2ef;
   width: 100px;
   border-radius: 5px;
   font-family: Urbanist;
@@ -189,4 +188,12 @@ export const LikeWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+`
+
+export const LikeFavoriteWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  margin-right: 6px;
 `

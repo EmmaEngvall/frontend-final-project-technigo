@@ -24,9 +24,8 @@ export const ButtonWrapper = styled.div`
 `
 
 export const SubmitButton = styled.button`
-  border: 2px solid #257ca3;
-  color: white;
-  background-color: #257ca3;
+  border: 2px solid #73BAD8;
+  background-color: #73BAD8;
   width: 68px;
   border-radius: 20px;
   font-family: Urbanist;
@@ -46,9 +45,8 @@ export const SubmitButton = styled.button`
 `
 
 export const ResetButton = styled.button`
-  border: 2px solid #257ca3;
-  color: white;
-  background-color: #257ca3;
+  border: 2px solid #baf2ef;
+  background-color: #baf2ef;
   width: 68px;
   border-radius: 20px;
   font-family: Urbanist;
@@ -59,4 +57,13 @@ export const ResetButton = styled.button`
     background-color: black;
     color: white;
   }
+`
+
+export const LevelTxt = styled.p`
+  margin: 8px 0px 0px 0px;
+`
+
+export const LevelOptions = styled.label`
+  font-family: Urbanist;
+  font-size: 0.9rem;
 `

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
-import { InnerWrapper, StyledMainWrapper, ProfileH2, PostsWrapper, InnerWrapperPosts, SinglePostWrapper, PostTopWrapper, GreetingText, Headline, Location, Message, IntroText, LikeIcon, LikeWrapper } from 'styled/ProfileStyled';
+import { InnerWrapper, StyledMainWrapper, ProfileH2, PostsWrapper, InnerWrapperPosts, SinglePostWrapper, PostTopWrapper, GreetingText, Headline, Location, Message, IntroText, LikeIcon, LikeWrapper, LikeFavoriteWrapper } from 'styled/ProfileStyled';
 import styled from 'styled-components/macro';
 import { BackgroundContainer } from 'styled/LoginStyled';
 import { CreditTxt, SortBtn } from 'styled/MainStyled';
@@ -175,11 +175,13 @@ const Profile = () => {
                   <p>{item.level}</p>
                   <Message>{item.message}</Message>
                   <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
-                  <LikeWrapper>
-                    <LikeIcon src={likeIcon} alt="like icon" />
-                    <p> x {item.numOfLikes}</p>
-                  </LikeWrapper>
-                  <HandleFav id={item._id} />
+                  <LikeFavoriteWrapper>
+                    <LikeWrapper>
+                      <LikeIcon src={likeIcon} alt="like icon" />
+                      <p> x {item.numOfLikes}</p>
+                    </LikeWrapper>
+                    <HandleFav id={item._id} />
+                  </LikeFavoriteWrapper>
                 </SinglePostWrapper>
               )
             })}

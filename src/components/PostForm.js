@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
-import { FormLabel, PlaceholderTxt, ResetButton, StyledForm, SubmitButton, ButtonWrapper } from 'styled/PostFormStyled';
+import { FormLabel, PlaceholderTxt, ResetButton, StyledForm, SubmitButton, ButtonWrapper, LevelTxt, LevelOptions } from 'styled/PostFormStyled';
 
 const PostForm = () => {
   const dispatch = useDispatch();
@@ -70,27 +70,28 @@ const PostForm = () => {
           placeholder="Where did you surf?"
           onChange={(e) => setLocation(e.target.value)} />
       </FormLabel>
-      <label htmlFor="beginner">Beginner
+      <LevelTxt>What surf level?</LevelTxt>
+      <LevelOptions htmlFor="beginner">Beginner
         <input
           type="radio"
           id="beginner"
           checked={level === 'beginner'}
           onChange={() => setLevel('beginner')} />
-      </label>
-      <label htmlFor="intermediate">Intermediate
+      </LevelOptions>
+      <LevelOptions htmlFor="intermediate">Intermediate
         <input
           type="radio"
           id="intermediate"
           checked={level === 'intermediate'}
           onChange={() => setLevel('intermediate')} />
-      </label>
-      <label htmlFor="advanced">Advanced
+      </LevelOptions>
+      <LevelOptions htmlFor="advanced">Advanced
         <input
           type="radio"
           id="advanced"
           checked={level === 'advanced'}
           onChange={() => setLevel('advanced')} />
-      </label>
+      </LevelOptions>
       <FormLabel htmlFor="message">Message
         <textarea
           className="message"
@@ -106,7 +107,7 @@ const PostForm = () => {
         <ResetButton
           type="button"
           onClick={handleReset}>
-          Clear Input
+          Clear
         </ResetButton>
         <SubmitButton type="submit">Submit</SubmitButton>
       </ButtonWrapper>
