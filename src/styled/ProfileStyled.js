@@ -29,6 +29,8 @@ export const PostsWrapper = styled.div`
   flex-direction: column;
   gap: 10px;
   margin-bottom: 25px;
+  min-width: 100%;
+  max-width: 100%;
 `
 export const InnerWrapperPosts = styled.div`
   display:flex;
@@ -40,13 +42,16 @@ export const InnerWrapperPosts = styled.div`
   height: 55vh;
   overflow-x: hidden;
   overflow-y: scroll;
+  min-width: 100%;
+  max-width: 100%;
 `
 export const SinglePostWrapper = styled.div`
   padding-left: 14px;
   padding-right: 5px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   overflow-wrap: break-word;
-  width: 90%;
+  min-width: 95%;
+  max-width: 95%;
 `
 
 export const GreetingText = styled.h2`
@@ -90,10 +95,7 @@ export const Headline = styled.p`
   font-size: 1.6rem;
   font-weight: 600;
   color: #257ca3;
-`
-
-export const Location = styled.p`
-  font-weight: 400;
+  margin-bottom: 6px;
 `
 
 export const Message = styled.p`
@@ -207,4 +209,30 @@ export const LikeFavoriteWrapper = styled.div`
   justify-content: space-between;
   margin-bottom: 8px;
   margin-right: 6px;
+`
+
+export const DateTxtForm = styled.p`
+  color: #5d5d5d;
+  margin: 0px 0px 8px 0px;
+  font-family: Poppins;
+  font-size: 0.8rem;
+`
+
+export const LocationForm = styled.p`
+  font-weight: 400;
+  font-family: Poppins;
+  margin: 4px 0px;
+  font-size: 0.9rem;
+`
+export const LevelForm = styled.p`
+  font-weight: 500;
+  font-family: Poppins;
+  margin: 4px 0px;
+  font-size: 0.9rem;
+`
+export const MessageForm = styled.p`
+  font-weight: 300;
+  font-family: Poppins;
+  margin: 6px 0px;
+  font-size: 0.9rem;
 `

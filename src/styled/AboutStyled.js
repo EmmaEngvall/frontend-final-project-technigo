@@ -24,6 +24,7 @@ export const AboutHeader = styled.h1`
   font-weight: 500;
   font-size: 2.4rem;
   text-align: center;
+  color: #257ca3;
 `
 export const AboutH2 = styled.h2`
   font-family: Caveat;
@@ -31,6 +32,10 @@ export const AboutH2 = styled.h2`
   font-size: 1.8rem;  
   margin-bottom: 0px;
   margin-top: 30px;
+
+  @media (min-width: 667px){
+  margin-top: 0px;
+  }
 `
 export const AboutH3 = styled.h3`
   font-family: Caveat;
@@ -53,19 +58,23 @@ flex-direction: column;
 align-items: center;
 height: 30vh;
 width: 100%;
-margin-bottom: 4rem;
+margin-bottom: 2rem;
 
 @media (min-width: 667px){
   height: 40vh;
+  margin-bottom: 2rem;
 }
 @media (min-width: 1024px){
   height: 60vh;
+  width: auto;
+  margin-bottom: 2rem;
 }
 `
 
 export const BackgroundImg = styled.img`
   object-fit: contain;
   width: 100%;
+  height: 100%
 `
 
 export const HandIcon = styled.img`

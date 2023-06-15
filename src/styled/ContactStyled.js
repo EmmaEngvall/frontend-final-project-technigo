@@ -43,6 +43,7 @@ export const ContactHeader = styled.h1`
   font-weight: 500;
   font-size: 2.4rem;
   text-align: center;
+  color: #257ca3; 
 `
 export const ContactP = styled.p`
   font-family: Poppins;

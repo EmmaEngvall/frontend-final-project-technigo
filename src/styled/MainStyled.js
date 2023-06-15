@@ -34,7 +34,8 @@ export const InnerWrapperPosts = styled.div`
   display:flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   gap: 20px;
   padding-top: 10px;
   height: 80vh;
@@ -47,7 +48,8 @@ export const SinglePostWrapper = styled.div`
   padding-right: 5px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   overflow-wrap: break-word; 
-  width: 90%;
+  min-width: 95%;
+  max-width: 95%;
 `
 
 export const GreetingText = styled.h1`
@@ -87,6 +89,7 @@ export const LogoutButton = styled.button`
   background-color: #73bad8;
   border-radius: 20px;
   font-family: Urbanist;
+  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   margin-bottom: 16px;

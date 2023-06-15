@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
-import { InnerWrapper, StyledMainWrapper, ProfileH2, PostsWrapper, InnerWrapperPosts, SinglePostWrapper, PostTopWrapper, GreetingText, Headline, Location, Message, IntroText, LikeIcon, LikeWrapper, LikeFavoriteWrapper } from 'styled/ProfileStyled';
+import { InnerWrapper, StyledMainWrapper, ProfileH2, PostsWrapper, InnerWrapperPosts, SinglePostWrapper, PostTopWrapper, GreetingText, Headline, IntroText, LikeIcon, LikeWrapper, LikeFavoriteWrapper, LocationForm, MessageForm, DateTxtForm, LevelForm } from 'styled/ProfileStyled';
 import styled from 'styled-components/macro';
 import { BackgroundContainer } from 'styled/LoginStyled';
 import { CreditTxt, SortBtn } from 'styled/MainStyled';
@@ -150,10 +150,10 @@ const Profile = () => {
                     <Headline>{item.headline}</Headline>
                     <DltBtn id={item._id} />
                   </PostTopWrapper>
-                  <Location>{item.location}</Location>
-                  <p>{item.level}</p>
+                  <DateTxtForm>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</DateTxtForm>
+                  <LocationForm>{item.location}</LocationForm>
+                  <LevelForm>{item.level}</LevelForm>
                   <EditPost message={item.message} id={item._id} />
-                  <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
                   <LikeWrapper>
                     <LikeIcon src={likeIcon} alt="like icon" />
                     <p> x {item.numOfLikes}</p>
@@ -171,10 +171,10 @@ const Profile = () => {
               return (
                 <SinglePostWrapper key={item.id}>
                   <Headline>{item.headline}</Headline>
-                  <Location>{item.location}</Location>
-                  <p>{item.level}</p>
-                  <Message>{item.message}</Message>
-                  <p>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
+                  <DateTxtForm>{new Date(item.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</DateTxtForm>
+                  <LocationForm>{item.location}</LocationForm>
+                  <LevelForm>{item.level}</LevelForm>
+                  <MessageForm>{item.message}</MessageForm>
                   <LikeFavoriteWrapper>
                     <LikeWrapper>
                       <LikeIcon src={likeIcon} alt="like icon" />

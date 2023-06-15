@@ -7,8 +7,14 @@ export const StyledForm = styled.form`
   padding: 10px;
   margin-bottom: 15px;
   font-weight: 500;
+  width: 100%;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+  @media (min-width: 1024px){
+    width: 60%;
+  }
 `
+
 export const FormLabel = styled.label`
   display: flex;
   flex-direction: column;
