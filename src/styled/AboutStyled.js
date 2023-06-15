@@ -30,18 +30,21 @@ export const AboutH2 = styled.h2`
   color: #257ca3;
   font-size: 1.8rem;  
   margin-bottom: 0px;
+  margin-top: 30px;
 `
 export const AboutH3 = styled.h3`
   font-family: Caveat;
   color: #257ca3;
   font-size: 1.8rem;  
   margin-bottom: 0px;
+  margin-top: 14px;
 `
 export const AboutP = styled.p`
   font-family: Poppins;
   max-width: 100%;  
   overflow-wrap: break-word;
   text-align: center;
+  margin: 4px 0px;
 `
 
 export const BackgroundContainer = styled.div`
@@ -63,4 +66,19 @@ margin-bottom: 4rem;
 export const BackgroundImg = styled.img`
   object-fit: contain;
   width: 100%;
+`
+
+export const HandIcon = styled.img`
+  height: 3.8vh;
+  width: auto;
+`
+
+export const Signature = styled.p`
+  margin: 6px 0px;
+`
+
+export const AboutCreditTxt = styled.p`
+  font-family: Poppins;
+  font-size: 0.6rem;
+  color: #a6a6a6;
 `

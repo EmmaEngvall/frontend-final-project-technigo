@@ -1,7 +1,7 @@
 import React from 'react';
-import { CreditTxt } from 'styled/MainStyled';
-import { StyledMainWrapper, InnerWrapper, AboutHeader, AboutH2, AboutH3, AboutP, BackgroundContainer, BackgroundImg } from 'styled/AboutStyled';
+import { StyledMainWrapper, InnerWrapper, AboutHeader, AboutH2, AboutH3, AboutP, BackgroundContainer, BackgroundImg, HandIcon, Signature, AboutCreditTxt } from 'styled/AboutStyled';
 import ImageBackground from '../images/img_about.jpg';
+import handIcon from '../icons/hand_ltblue.png';
 
 const About = () => {
   return (
@@ -10,7 +10,7 @@ const About = () => {
         <AboutHeader>About Wave Finder</AboutHeader>
         <BackgroundContainer>
           <BackgroundImg src={ImageBackground} />
-          <CreditTxt>Photo by
+          <AboutCreditTxt>Photo by
             <a
               href="https://unsplash.com/@bradhalcrow?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
               target="_blank"
@@ -21,7 +21,7 @@ const About = () => {
               target="_blank"
               rel="noopener noreferrer"> Unsplash
             </a>
-          </CreditTxt>
+          </AboutCreditTxt>
         </BackgroundContainer>
         <AboutH2>Vision</AboutH2>
         <AboutP>”Our vision is to create a place for inspiration where you can share
@@ -32,7 +32,14 @@ const About = () => {
           see you out there!”
         </AboutP>
         <AboutH3>Background to project</AboutH3>
-        <AboutP>To conclude a 22 week bootcamp with Technigo...</AboutP>
+        <AboutP>
+          To mark the end of a 22 week Web Development bootcamp with Technigo we launched this site.
+          It is home for anyone who gets excited about waves and wind and a place to find and to
+          share inspiration. We hope that you will enjoy it, and if you want to know more about us
+          feel free to contact us.
+          <Signature>/ Emma & Malin</Signature>
+          <HandIcon src={handIcon} alt="hand icon" />
+        </AboutP>
       </InnerWrapper>
     </StyledMainWrapper>
   )
