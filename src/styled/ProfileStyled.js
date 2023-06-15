@@ -20,6 +20,8 @@ export const InnerWrapper = styled.section`
   }
   `
 export const ProfileH2 = styled.h2`
+  font-family: Caveat;
+  font-size: 1.8rem;  
   margin-bottom: 0px;
 `
 export const PostsWrapper = styled.div`

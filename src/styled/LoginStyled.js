@@ -54,6 +54,7 @@ width: 100%;
 export const PlaceholderTxtSignUp = styled.input`
   font-family: Poppins;
   font-style: Italic;
+  width: 60%;
 `
 
 export const StyledHeader = styled.h1`
