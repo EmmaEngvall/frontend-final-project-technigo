@@ -22,7 +22,7 @@ export const InnerWrapper = styled.section`
 export const AboutHeader = styled.h1`
   font-family: Urbanist;
   font-weight: 500;
-  font-size: 2rem;
+  font-size: 2.4rem;
   text-align: center;
 `
 export const AboutH2 = styled.h2`

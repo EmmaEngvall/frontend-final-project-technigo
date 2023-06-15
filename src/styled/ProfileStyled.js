@@ -99,6 +99,16 @@ export const Location = styled.p`
 export const Message = styled.p`
   font-weight: 300;
 `
+// styling for edit
+export const EditWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`
+export const EditButtonsWrapper = styled.div`
+  display: flex;
+  gap: 5px;
+`
 
 export const EditBtn = styled.button`
   border: 2px solid #baf2ef;

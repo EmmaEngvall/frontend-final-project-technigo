@@ -58,11 +58,6 @@ export const StyledNavLink = styled(NavLink)`
 export const ElementP = styled.p`
   color: black;
   text-transform: uppercase;
-
-  @media (min-width: 667px){
-  font-weight: bold;
-  font-size: 0.9rem;
-}
 `
 
 export const ToggleButton = styled.button`

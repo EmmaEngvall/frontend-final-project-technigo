@@ -41,7 +41,7 @@ export const DetailsWrapper = styled.div`
 export const ContactHeader = styled.h1`
   font-family: Urbanist;
   font-weight: 500;
-  font-size: 2rem;
+  font-size: 2.4rem;
   text-align: center;
 `
 export const ContactP = styled.p`

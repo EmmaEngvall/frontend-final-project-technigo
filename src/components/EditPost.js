@@ -2,7 +2,7 @@
 import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import surfPosts from 'reducers/surfPosts';
-import { CancelBtn, EditBtn, Message, SaveBtn } from 'styled/ProfileStyled';
+import { EditWrapper, EditButtonsWrapper, CancelBtn, EditBtn, Message, SaveBtn } from 'styled/ProfileStyled';
 import { API_URL } from 'utils/urls';
 
 const EditPost = ({ message, id }) => {
@@ -44,19 +44,21 @@ const EditPost = ({ message, id }) => {
   }
 
   return (
-    <div>
+    <EditWrapper>
       {editing ? (
         <textarea defaultValue={message} ref={updatedMsgRef} />
       ) : (
         <Message>{message}</Message>
       )}
       {editing ? (
-        <CancelBtn type="button" onClick={() => setEditing(false)}>Cancel</CancelBtn>
+        <EditButtonsWrapper>
+          <SaveBtn type="submit" onClick={handleEdit}>Save</SaveBtn>
+          <CancelBtn type="button" onClick={() => setEditing(false)}>Cancel</CancelBtn>
+        </EditButtonsWrapper>
       ) : (
         <EditBtn type="button" onClick={() => setEditing(true)}>Edit</EditBtn>
       )}
-      {editing && <SaveBtn type="submit" onClick={handleEdit}>Save</SaveBtn>}
-    </div>
+    </EditWrapper>
   )
 }
 

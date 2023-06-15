@@ -25,9 +25,9 @@ const About = () => {
         </BackgroundContainer>
         <AboutH2>Vision</AboutH2>
         <AboutP>”Our vision is to create a place for inspiration where you can share
-          your experiences with fellow surfers...no matter how experienced you are.
-          ...Dreaming about standing on a board for the first time, or if you have been riping waves
-          for decades.
+          your experiences with fellow surfers no matter how experienced you are as a surfer.
+          If you are dreaming about standing on a board for the first time, or if you have been
+          riping waves for decades this is a place for everyone.
           Join the conversation with good vibes only. Be mindful of what you write and
           see you out there!”
         </AboutP>

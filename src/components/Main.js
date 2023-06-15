@@ -137,7 +137,12 @@ const Main = () => {
               <LogoutButton type="button">Register/Log In</LogoutButton>
             </NavLink>
           </>)
-          : (<StyledH3>Hello {username}!</StyledH3>)}
+          : (
+            <StyledH3>Hi {username}!
+              <p>Feel free to create and share a post, like other members&apos; posts and save your
+              favorites.
+              </p>
+            </StyledH3>)}
         <Carousel />
         <SecondHeader>Check the weather</SecondHeader>
         <Weather />

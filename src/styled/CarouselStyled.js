@@ -3,6 +3,13 @@ import styled from 'styled-components/macro';
 export const ArticleContainer = styled.div`
 width: 76vw;
 margin-bottom: 3.4rem;
+
+@media (min-width: 667px){
+    width: 50vw;
+  }
+  @media (min-width: 1024px){
+    width: 50vw;
+  }
 `
 
 export const StyledHeadline = styled.h2`

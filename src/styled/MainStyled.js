@@ -25,6 +25,10 @@ export const PostsWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 10px;
+
+  @media (min-width: 1024px){
+    width: 80%;
+  }
 `
 export const InnerWrapperPosts = styled.div`
   display:flex;
@@ -69,7 +73,7 @@ margin: 0px;
 `
 
 export const StyledH3 = styled.h3`
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #4c4c4c;
   text-align: center;
   font-family: Urbanist;
@@ -212,9 +216,9 @@ export const FavBtn = styled.button`
   margin-bottom: 0px;
   margin-left: 6px;
 
-  &:focus {
-    background-color: white;
-    box-shadow: 0 5px #257ca3;
+  &:disabled {
+    background-color: #bfbfbf;
+    border: 2px solid #bfbfbf;
   }
   `
 
