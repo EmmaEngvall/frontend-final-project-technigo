@@ -20,9 +20,9 @@ const HandleFav = ({ id }) => {
     const isFavorite = post.savedFavBy.includes(userId);
 
     if (isFavorite) {
-      setFavoriteButtonText('❌ Remove favorite');
+      setFavoriteButtonText('Remove favorite');
     } else {
-      setFavoriteButtonText('🔖 Save as favorite');
+      setFavoriteButtonText('Save as favorite');
     }
   }, [allItemsArray, id, userId])
 
@@ -72,7 +72,7 @@ const HandleFav = ({ id }) => {
         onClick={handleAddFav}
         disabled={(!accessToken)}>
         <p>{favoriteButtonText}</p>
-        {(!accessToken) && <span className="tooltiptext">Become a member to save a favorite</span>}
+        {(!accessToken) && <span className="tooltiptextfavorit">Become a member to save a favorite</span>}
       </FavBtn>
     </div>
   )

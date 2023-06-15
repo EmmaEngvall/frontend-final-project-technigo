@@ -35,7 +35,8 @@ const About = () => {
         your experiences with fellow surfers...no matter how experienced you are.
         ...Dreaming about standing on a board for the first time, or if you have been riping waves
         for decades.
-        Join the conversation with good vibes only. Be mindful of what you right and lets...”
+        Join the conversation with good vibes only. Be mindful of what you write and
+        see you out there!”
       </p>
       <h2>Background to project</h2>
       <p>To conclude a 22 week bootcamp with Technigo...</p>

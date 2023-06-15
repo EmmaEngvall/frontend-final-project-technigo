@@ -68,9 +68,9 @@ const MainFilterLevel = () => {
 
   return (
     <FilterOptionWrapper>
-      <SortLabel htmlFor="levelSelect">Sort on Surf level
+      <SortLabel htmlFor="levelSelect">Filter on Surf level
         <SortLevel onChange={handleLevelChanges} value={selectedLevel}>
-          <option value="all" disabled>Sort on level</option>
+          <option value="all" disabled>Filter on Level</option>
           <option value="all">All levels</option>
           {sortedLevels.map((level) => {
             return (
@@ -79,9 +79,9 @@ const MainFilterLevel = () => {
           })}
         </SortLevel>
       </SortLabel>
-      <SortLabel htmlFor="locationSelect">Sort on Location
+      <SortLabel htmlFor="locationSelect">Filter on Location
         <SortLocation onChange={handleLocationChanges} value={selectedLocation}>
-          <option value="all" disabled>Filter by location</option>
+          <option value="all" disabled>Filter by Location</option>
           <option value="all">Clear filter</option>
           {uniqueLocations
             .sort((a, b) => a.localeCompare(b))
