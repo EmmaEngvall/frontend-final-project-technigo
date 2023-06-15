@@ -72,8 +72,8 @@ export const StyledH3 = styled.h3`
   font-size: 1rem;
   color: #4c4c4c;
   text-align: center;
-  font-family: Poppins;
-  font-weight: 300;
+  font-family: Urbanist;
+  font-weight: 400;
   margin: 0;
 `
 
@@ -221,7 +221,7 @@ export const FavBtn = styled.button`
 export const LikeBtn = styled.button`
   background-color: white;
   border: none;
-  width: 80px;
+  width: 100px;
   font-family: Urbanist;
   font-weight: 500;
   cursor: pointer;
@@ -239,6 +239,7 @@ export const LikeWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  width: 100px;
 `
 
 export const LikeFavWrapper = styled.div`

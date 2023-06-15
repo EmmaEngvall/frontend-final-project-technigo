@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from 'utils/urls';
 import styled from 'styled-components/macro';
-import { StyledMainWrapper, InnerWrapper, RadioButtonWrapper, StyledForm, ErrorMessage, LabelForm, StyledHeader, SignUpText, BackgroundContainer, SubmitButton } from 'styled/LoginStyled';
+import { StyledMainWrapper, InnerWrapper, RadioButtonWrapper, StyledForm, ErrorMessage, LabelForm, StyledHeader, SignUpText, BackgroundContainer, SubmitButton, PlaceholderTxtSignUp } from 'styled/LoginStyled';
 import { CreditTxt } from 'styled/MainStyled';
 import user from '../reducers/user';
 import ImageBackground from '../images/img_login.jpg';
@@ -93,7 +93,7 @@ const LogIn = () => {
             </label>
           </RadioButtonWrapper>
           <LabelForm className={(mode === 'login') ? 'login' : 'register'} htmlFor="email">Email
-            <input
+            <PlaceholderTxtSignUp
               type="email"
               id="email"
               placeholder="Your email here"
@@ -104,10 +104,10 @@ const LogIn = () => {
               }} />
           </LabelForm>
           <LabelForm htmlFor="username">Username
-            <input
+            <PlaceholderTxtSignUp
               type="text"
               id="username"
-              placeholder="At least 2 characters"
+              placeholder="Min 2 characters"
               value={username}
               minLength="2"
               maxLength="14"
@@ -117,10 +117,10 @@ const LogIn = () => {
               }} />
           </LabelForm>
           <LabelForm htmlFor="password">Password
-            <input
+            <PlaceholderTxtSignUp
               type="password"
               id="password"
-              placeholder="At least 8 characters"
+              placeholder="Min 8 characters"
               value={password}
               minLength="8"
               onChange={(e) => {
