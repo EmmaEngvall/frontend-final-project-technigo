@@ -62,7 +62,7 @@ textarea {
 
 .slider-container .slick-dots {
   position: absolute;
-  bottom: -2.8rem; 
+  bottom: -1.8rem; 
   left: 49%; 
   transform: translateX(-50%);
   list-style-type: none;
@@ -79,8 +79,8 @@ textarea {
 .slider-container .slick-dots li button:before {
   content: "";
   position: absolute;
-  width: 16px; 
-  height: 16px; 
+  width: 12px; 
+  height: 12px; 
   background-color: #e4dec9; 
   opacity: 0.8; 
   border-radius: 40px;

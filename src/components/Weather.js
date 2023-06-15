@@ -1,6 +1,7 @@
 // import dotenv from 'dotenv';
 import React, { useState } from 'react';
 import { StyledForm, SubmitButton } from 'styled/LoginStyled';
+import { PlaceholderTxt, SearchText } from 'styled/WeatherStyled';
 
 // dotenv.config()
 
@@ -36,12 +37,12 @@ const Weather = () => {
     <div>
       <StyledForm onSubmit={onSearchSubmit}>
         <h2>Get ready to surf with a fresh weather report</h2>
-        <label htmlFor="citySearch">Search for weather in a city
-          <input
+        <SearchText htmlFor="citySearch">Search for weather in a city
+          <PlaceholderTxt
             type="text"
             id="citySearch"
             placeholder="Enter a city" />
-        </label>
+        </SearchText>
         <SubmitButton type="submit">Search</SubmitButton>
       </StyledForm>
       {(forecast.length) ? <p>Five-day weather forecast for {displayCity}</p> : ''}

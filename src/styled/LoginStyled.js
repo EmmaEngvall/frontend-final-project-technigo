@@ -78,9 +78,9 @@ width: 100%;
 `
 
 export const SubmitButton = styled.button`
-border: 2px solid #257ca3;
-color: white;
-background-color: #257ca3;
+border: 2px solid #73BAD8;
+color: black;
+background-color: #73BAD8;
 width: 68px;
 border-radius: 20px;
 font-family: Urbanist;

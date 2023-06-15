@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 // import user from 'reducers/user';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
-import { InnerWrapper, StyledMainWrapper, PostsWrapper, InnerWrapperPosts, BtnWrapper, SinglePostWrapper, GreetingText, StyledH3, LogoutButton, Headline, Location, Message, CreditTxt, LikeBtn, LikeIcon, LikeWrapper } from 'styled/MainStyled';
+import { InnerWrapper, StyledMainWrapper, PostsWrapper, InnerWrapperPosts, BtnWrapper, SinglePostWrapper, GreetingText, StyledH3, LogoutButton, Headline, Location, Message, CreditTxt, LikeBtn, LikeIcon, LikeWrapper, SecondHeader } from 'styled/MainStyled';
 import styled from 'styled-components/macro';
 import { BackgroundContainer } from 'styled/LoginStyled';
 import HandleFav from './HandleFav';
@@ -139,11 +139,12 @@ const Main = () => {
           </>)
           : (<StyledH3>Hello {username}</StyledH3>)}
         <Carousel />
+        <SecondHeader>Check the weather</SecondHeader>
         <Weather />
         {(loading) ? (
           <p>Loading recommendations that our members have shared...</p>)
           : (
-            <h2>Recommendations from our members...</h2>)}
+            <SecondHeader>Recommendations from our members...</SecondHeader>)}
         <PostsWrapper>
           <MainFilterLevel />
           <BtnWrapper>

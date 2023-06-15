@@ -46,7 +46,7 @@ export const SinglePostWrapper = styled.div`
   width: 90%;
 `
 
-export const GreetingText = styled.h2`
+export const GreetingText = styled.h1`
 font-size: 2.4rem;
 color: #257ca3;
 text-align: center;
@@ -54,9 +54,24 @@ font-family: Caveat;
 font-weight: 500;
 margin-bottom: 8px;
 `
+
+export const SecondHeader = styled.h2`
+font-family: Urbanist;
+font-weight: 500;
+font-size: 30px;
+line-height: 40px;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -1px;
+color: #257ca3;
+margin-top: 1rem;
+margin-left: 20px;
+`
+
 export const StyledH3 = styled.h3`
   font-size: 1rem;
-  color: gray;
+  color: #4c4c4c;
   text-align: center;
   font-family: Poppins;
   font-weight: 300;
@@ -64,14 +79,15 @@ export const StyledH3 = styled.h3`
 `
 
 export const LogoutButton = styled.button`
-  border: 2px solid #257ca3;
-  color: white;
-  background-color: #257ca3;
+  border: 2px solid #73bad8;
+  color: black;
+  background-color: #73bad8;
   border-radius: 20px;
   font-family: Urbanist;
+  font-weight: 500;
   cursor: pointer;
   margin-bottom: 16px;
-  padding: 3px;
+  padding: 10px;
 
   &:hover {
     border: 2px solid black;
