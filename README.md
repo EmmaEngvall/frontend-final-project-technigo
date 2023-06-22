@@ -17,3 +17,8 @@ Alternatively, if you don't want a new git repo on your account;
 1. Open the directory in the terminal: `cd /path/to/react-starter`
 1. Install required dependencies with npm: `npm install`
 1. Start the project: `npm start`
+
+Link to deployed site:
+https://wave-finder.netlify.app/
+
+![image](https://github.com/EmmaEngvall/frontend-final-project-technigo/assets/121884747/a230a0ca-dcdf-4f7b-8663-88d0ebf370c1)
