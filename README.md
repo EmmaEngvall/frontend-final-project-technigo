@@ -1,5 +1,7 @@
 # Technigo Final Project - Wave Finder
-Built by **Malin Skill** and **Emma Engvall**
+Built by 
+**Malin Skill** [title] (https://github.com/MalinSkill) and
+**Emma Engvall** [title] (https://github.com/EmmaEngvall)
 
 ### Link to deployed site:
 https://wave-finder.netlify.app/
