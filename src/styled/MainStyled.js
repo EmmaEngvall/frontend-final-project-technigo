@@ -243,6 +243,13 @@ export const LikeIcon = styled.img`
   width: auto;
   padding-right: 5px;
 `
+export const LikeAmountP = styled.p`
+  color: black;
+  font-weight: 300;
+  font-family: Poppins;
+  margin: 6px 0px;
+  font-size: 0.9rem;
+`
 
 export const LikeWrapper = styled.div`
   display: flex;

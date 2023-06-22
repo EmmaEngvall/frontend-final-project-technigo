@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 // import user from 'reducers/user';
 import surfPosts from 'reducers/surfPosts';
 import { API_URL } from 'utils/urls';
-import { InnerWrapper, StyledMainWrapper, PostsWrapper, InnerWrapperPosts, BtnWrapper, SinglePostWrapper, GreetingText, StyledH3, LogoutButton, Headline, Location, Message, CreditTxt, LikeBtn, LikeIcon, LikeWrapper, SecondHeader, Level, DateTxt, LikeFavWrapper } from 'styled/MainStyled';
+import { InnerWrapper, StyledMainWrapper, PostsWrapper, InnerWrapperPosts, BtnWrapper, SinglePostWrapper, GreetingText, StyledH3, LogoutButton, Headline, Location, Message, CreditTxt, LikeBtn, LikeIcon, LikeAmountP, LikeWrapper, SecondHeader, Level, DateTxt, LikeFavWrapper } from 'styled/MainStyled';
 import styled from 'styled-components/macro';
 import { BackgroundContainer } from 'styled/LoginStyled';
 import HandleFav from './HandleFav';
@@ -140,7 +140,7 @@ const Main = () => {
           : (
             <StyledH3>Hi {username}!
               <p>Feel free to create and share a post, like other members&apos; posts and save your
-              favorites.
+                favorites.
               </p>
             </StyledH3>)}
         <Carousel />
@@ -174,7 +174,7 @@ const Main = () => {
                         disabled={(!accessToken)}>
                         <LikeWrapper>
                           <LikeIcon src={likeIcon} alt="like icon" />
-                          <p> x {item.numOfLikes}</p>
+                          <LikeAmountP> x {item.numOfLikes}</LikeAmountP>
                         </LikeWrapper>
                         {(!accessToken) && <span className="tooltiptext">Become a member to like a post</span>}
                       </LikeBtn>
