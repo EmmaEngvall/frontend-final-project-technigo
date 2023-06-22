@@ -1,7 +1,5 @@
 # Technigo Final Project - Wave Finder
 
-![image](https://github.com/EmmaEngvall/frontend-final-project-technigo/assets/121884747/a230a0ca-dcdf-4f7b-8663-88d0ebf370c1)
-
 Built by 
 [**Malin Skill**](https://github.com/MalinSkill) and
 [**Emma Engvall**](https://github.com/EmmaEngvall)
@@ -28,3 +26,6 @@ The site is connected to an external weather API so that the user can check the 
 - Add connection to external map api
 - Logged in user can add comments to other users' posts
 - Reset password
+
+
+![image](https://github.com/EmmaEngvall/frontend-final-project-technigo/assets/121884747/a230a0ca-dcdf-4f7b-8663-88d0ebf370c1)
